@@ -15,16 +15,22 @@
 
   var CONFIG = {
     videos: {
-      url: "assets/data/youtube-videos.json",
+      url: "/data/youtube-videos.json",
       empty: "New videos will appear here once the daily sync runs.",
       error: 'The video feed could not be loaded. <a href="https://www.youtube.com/@AprilDunnam">Visit April on YouTube</a>.',
       render: renderVideoCard
     },
     posts: {
-      url: "assets/data/blog-posts.json",
+      url: "/data/blog-posts.json",
       empty: "New posts will appear here once the daily sync runs.",
       error: 'The blog feed could not be loaded. <a href="https://aprildunnam.com/blog/">Read the blog on aprildunnam.com</a>.',
       render: renderPostCard
+    },
+    talks: {
+      url: "/data/speaking-videos.json",
+      empty: "Talk recordings will appear here once the daily sync runs.",
+      error: 'The talks playlist could not be loaded. <a href="https://www.youtube.com/playlist?list=PLINAH02_IDH-knetYe3AuT3dNO2sXDooa">Watch the playlist on YouTube</a>.',
+      render: renderVideoCard
     }
   };
 
@@ -159,4 +165,5 @@
 
   loadFeed("videos");
   loadFeed("posts");
+  loadFeed("talks");
 })();
