@@ -1,5 +1,5 @@
 /**
- * AI with April — shared site behavior.
+ * Learn with April - talks and watch page behavior.
  * Vanilla JS, no build step, no dependencies.
  */
 (function () {
@@ -116,11 +116,12 @@
       document.documentElement.style.setProperty("--header-height", header.getBoundingClientRect().height + "px");
     }
   }
+  if (!header) document.documentElement.style.setProperty("--header-height", "0px");
   updateHeaderHeight();
   if (header && window.ResizeObserver) new ResizeObserver(updateHeaderHeight).observe(header);
 
   var main = document.querySelector("main");
-  var isResource = /\/resources\/[^/]+\.html$/.test(window.location.pathname);
+  var isResource = /^\/talks\/[^/]+\/?$/.test(window.location.pathname);
   if (main && isResource) {
     var headings = Array.prototype.filter.call(main.querySelectorAll("h2"), function (heading) {
       return !heading.closest("details, .page-toc") && heading.textContent.trim() !== "On this page";

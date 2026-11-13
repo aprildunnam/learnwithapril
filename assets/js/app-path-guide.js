@@ -36,7 +36,7 @@
         why: "You want people to use the app's data and actions in Microsoft 365 Copilot chat. The deck describes a model-driven app integration using MCP.",
         owner: "You'll need an app owner and an integration owner to maintain the data, actions, permissions, and connection.",
         check: "This path comes from the November 2026 deck. Check current Microsoft documentation for Copilot integration, MCP setup, tenant requirements, authentication, and licensing. If you don't have a model-driven app, check the data and integration approach first.",
-        href: "techcon365-dallas-mcp.html",
+        href: "/talks/techcon365-dallas-mcp/",
         link: "Read the companion MCP session guide"
       };
     }

@@ -1,0 +1,56 @@
+/* Learn with April - shared header and footer used on every page.
+   Everything is namespaced (.lwa-*) so it can sit on top of the root,
+   talks, and SkillUp stylesheets without clashing. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;600;700&display=swap');
+
+.lwa-header,
+.lwa-footer {
+  --lwa-ink: #171D2B;
+  --lwa-muted: #465267;
+  --lwa-paper: #fbfaf7;
+  --lwa-line: #DCE5EB;
+  --lwa-accent: #07577A;
+  --lwa-pink: #E8327A;
+  background: var(--lwa-paper);
+  color: var(--lwa-ink);
+  font: 400 16px/1.5 "DM Sans", system-ui, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.lwa-header *, .lwa-footer * { box-sizing: border-box; }
+.lwa-header a, .lwa-footer a { color: inherit; text-decoration: none; }
+.lwa-header a:hover, .lwa-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.lwa-header a:focus-visible, .lwa-footer a:focus-visible { outline: 3px solid var(--lwa-accent); outline-offset: 3px; border-radius: 4px; }
+
+.lwa-wrap { width: min(1152px, calc(100% - 48px)); margin-inline: auto; }
+
+.lwa-header { border-bottom: 1px solid var(--lwa-line); position: relative; z-index: 20; }
+.lwa-header__inner { min-height: 72px; display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; padding-block: 12px; }
+
+.lwa-brand { display: inline-flex; align-items: center; gap: 9px; font: 800 1.3rem/1 "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -.04em; white-space: nowrap; margin-right: auto; }
+.lwa-brand img { display: block; width: 42px; height: 27px; }
+
+.lwa-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 26px; font-weight: 700; font-size: .95rem; margin: 0; padding: 0; }
+.lwa-nav a { padding-block: 6px; }
+.lwa-nav a[aria-current] { color: var(--lwa-accent); text-decoration: underline; text-decoration-color: var(--lwa-pink); text-decoration-thickness: 3px; text-underline-offset: 7px; }
+
+.lwa-cta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 16px; border: 1.5px solid var(--lwa-ink); border-radius: 9px; font-weight: 700; font-size: .95rem; white-space: nowrap; }
+.lwa-cta:hover { background: var(--lwa-ink); color: var(--lwa-paper); text-decoration: none !important; }
+
+@media (max-width: 860px) {
+  .lwa-header__inner { padding-block: 14px; }
+  .lwa-nav { order: 3; width: 100%; gap: 4px 20px; }
+}
+@media (max-width: 480px) {
+  .lwa-wrap { width: calc(100% - 32px); }
+  .lwa-cta { display: none; }
+}
+
+.lwa-footer { border-top: 1px solid var(--lwa-line); padding-block: 32px; margin-top: 0; }
+.lwa-footer__inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px 48px; flex-wrap: wrap; }
+.lwa-footer p { font: inherit; line-height: 1.5; margin: 10px 0 0; font-size: .9rem; color: var(--lwa-muted); max-width: 34ch; }
+.lwa-footer__cols { display: flex; gap: 24px 56px; flex-wrap: wrap; }
+.lwa-footer__col { display: flex; flex-direction: column; gap: 8px; font-size: .92rem; }
+.lwa-footer__col strong { font-family: inherit; font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--lwa-muted); }
+
+@media print { .lwa-header nav, .lwa-cta, .lwa-footer__cols { display: none; } }
