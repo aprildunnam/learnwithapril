@@ -96,7 +96,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Karla, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--lwa-font-body);
   font-size: 16.5px;
   line-height: 1.68;
   -webkit-font-smoothing: antialiased;
@@ -112,7 +112,7 @@ body {
 
 /* ---------- type ---------- */
 h1, h2, h3, h4 {
-  font-family: Fraunces, ui-serif, Georgia, "Times New Roman", serif;
+  font-family: var(--lwa-font-head);
   font-weight: 600;
   line-height: 1.16;
   text-wrap: balance;
@@ -122,7 +122,7 @@ h1, h2, h3, h4 {
 h1 { font-size: clamp(31px, 4.4vw, 42px); letter-spacing: -.015em; }
 h2 { font-size: 26px; letter-spacing: -.01em; margin: 52px 0 14px; }
 h3 { font-size: 20px; margin: 34px 0 10px; }
-h4 { font-size: 17px; margin: 26px 0 8px; font-family: Karla, sans-serif; font-weight: 700; }
+h4 { font-size: 17px; margin: 26px 0 8px; font-family: var(--lwa-font-body); font-weight: 700; }
 
 p { margin: 0 0 17px; max-width: var(--measure); }
 .lede { font-size: 19.5px; color: var(--muted); margin-top: 14px; max-width: 60ch; }
@@ -191,7 +191,7 @@ blockquote p:last-child { margin-bottom: 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand-mark { width: 24px; height: 24px; color: var(--accent); flex: none; }
 .brand-name {
-  font-family: Fraunces, serif; font-weight: 700; font-size: 20px; letter-spacing: -.01em;
+  font-family: var(--lwa-font-head); font-weight: 700; font-size: 20px; letter-spacing: -.01em;
   font-variation-settings: "SOFT" 0, "WONK" 1;
 }
 .topbar-right { display: flex; align-items: center; gap: 10px; }
@@ -237,7 +237,7 @@ blockquote p:last-child { margin-bottom: 0; }
 .nav-group-head {
   display: flex; align-items: baseline; gap: 9px;
   text-decoration: none;
-  font-family: Fraunces, serif; font-weight: 600; font-size: 16px;
+  font-family: var(--lwa-font-head); font-weight: 600; font-size: 16px;
   color: var(--ink);
   padding-bottom: 6px;
 }
@@ -369,7 +369,7 @@ td code { font-size: 12.8px; }
   transition: border-color .15s ease, transform .15s ease;
 }
 .toccard:hover { border-color: var(--accent); transform: translateY(-1px); color: inherit; }
-.toccard b { display: block; font-family: Fraunces, serif; font-weight: 600; font-size: 17.5px; margin-bottom: 4px; }
+.toccard b { display: block; font-family: var(--lwa-font-head); font-weight: 600; font-size: 17.5px; margin-bottom: 4px; }
 .toccard span { font-size: 14.3px; color: var(--muted); }
 
 /* scenario cards */
@@ -423,7 +423,7 @@ td code { font-size: 12.8px; }
 .pagenav-item {
   display: flex; flex-direction: column; gap: 3px;
   text-decoration: none; color: var(--ink);
-  font-family: Fraunces, serif; font-weight: 600; font-size: 16px;
+  font-family: var(--lwa-font-head); font-weight: 600; font-size: 16px;
   max-width: 47%;
 }
 .pagenav-item.next { text-align: right; align-items: flex-end; }
@@ -475,7 +475,7 @@ td code { font-size: 12.8px; }
   font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .1em;
   color: var(--brass); font-variant-numeric: tabular-nums;
 }
-.levelcard b { font-family: Fraunces, serif; font-weight: 600; font-size: 20px; }
+.levelcard b { font-family: var(--lwa-font-head); font-weight: 600; font-size: 20px; }
 .levelcard span.d { font-size: 14.5px; color: var(--muted); }
 
 .shopcard {
@@ -529,7 +529,7 @@ td code { font-size: 12.8px; }
   position: absolute; inset: 0; display: grid; place-items: center;
   font-family: "IBM Plex Mono", monospace; font-size: 22px; font-variant-numeric: tabular-nums;
 }
-.score-copy b { display: block; font-family: Fraunces, serif; font-size: 19px; }
+.score-copy b { display: block; font-family: var(--lwa-font-head); font-size: 19px; }
 .score-copy span { font-size: 14.2px; color: var(--muted); }
 
 .findings { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -562,7 +562,7 @@ td code { font-size: 12.8px; }
   background: var(--surface); border: 1px solid var(--rule); color: var(--ink);
 }
 .opt:hover { border-color: var(--accent); background: var(--accent-soft); }
-.verdict-name { font-family: Fraunces, serif; font-size: 30px; color: var(--accent); margin: 0 0 6px; }
+.verdict-name { font-family: var(--lwa-font-head); font-size: 30px; color: var(--accent); margin: 0 0 6px; }
 .why { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 7px; }
 .why li { font-size: 14.3px; color: var(--muted); padding-left: 18px; position: relative; }
 .why li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--brass); }

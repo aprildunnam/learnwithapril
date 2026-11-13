@@ -1,19 +1,57 @@
-/* Learn with April - shared header and footer used on every page.
-   Everything is namespaced (.lwa-*) so it can sit on top of the root,
-   talks, and SkillUp stylesheets without clashing. */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;600;700&display=swap');
+/* Learn with April - brand layer. Loaded last on every page.
+   1. Brand tokens (light + dark)  2. Shared header/footer  3. Bridges that
+   point the root, talks, and SkillUp stylesheets at the same tokens. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  color-scheme: light;
+  --lwa-font-head: "Bricolage Grotesque", system-ui, sans-serif;
+  --lwa-font-body: "DM Sans", system-ui, sans-serif;
+  --lwa-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --lwa-bg: #fbfaf7;
+  --lwa-surface: #ffffff;
+  --lwa-surface-2: #EFF4F7;
+  --lwa-ink: #171D2B;
+  --lwa-muted: #465267;
+  --lwa-faint: #5B677C;
+  --lwa-line: #DCE5EB;
+  --lwa-line-strong: #8FA9B8;
+  --lwa-accent: #07577A;
+  --lwa-accent-strong: #054461;
+  --lwa-on-accent: #ffffff;
+  --lwa-pink: #E8327A;
+  --lwa-pink-text: #A8255B;
+  --lwa-blue: #29ABE2;
+  --lwa-tint-blue: #E5F5FC;
+  --lwa-tint-pink: #FCE7F0;
+  --lwa-hero: linear-gradient(115deg, #E5F5FC 0%, #F3F8FA 53%, #FCE7F0 100%);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --lwa-bg: #0F131C;
+  --lwa-surface: #171D2B;
+  --lwa-surface-2: #1E2636;
+  --lwa-ink: #EEF1F6;
+  --lwa-muted: #B4BECD;
+  --lwa-faint: #9AA6B8;
+  --lwa-line: #2C3648;
+  --lwa-line-strong: #4C5A72;
+  --lwa-accent: #6CC6EE;
+  --lwa-accent-strong: #9AD8F3;
+  --lwa-on-accent: #0F131C;
+  --lwa-pink: #FF5C99;
+  --lwa-pink-text: #FF8FB8;
+  --lwa-blue: #29ABE2;
+  --lwa-tint-blue: #10293A;
+  --lwa-tint-pink: #33172A;
+  --lwa-hero: linear-gradient(115deg, #10293A 0%, #121826 53%, #33172A 100%);
+}
 
 .lwa-header,
 .lwa-footer {
-  --lwa-ink: #171D2B;
-  --lwa-muted: #465267;
-  --lwa-paper: #fbfaf7;
-  --lwa-line: #DCE5EB;
-  --lwa-accent: #07577A;
-  --lwa-pink: #E8327A;
-  background: var(--lwa-paper);
+  background: var(--lwa-bg);
   color: var(--lwa-ink);
-  font: 400 16px/1.5 "DM Sans", system-ui, sans-serif;
+  font: 400 16px/1.5 var(--lwa-font-body);
   letter-spacing: normal;
   text-transform: none;
 }
@@ -27,7 +65,7 @@
 .lwa-header { border-bottom: 1px solid var(--lwa-line); position: relative; z-index: 20; }
 .lwa-header__inner { min-height: 72px; display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; padding-block: 12px; }
 
-.lwa-brand { display: inline-flex; align-items: center; gap: 9px; font: 800 1.3rem/1 "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -.04em; white-space: nowrap; margin-right: auto; }
+.lwa-brand { display: inline-flex; align-items: center; gap: 9px; font: 800 1.3rem/1 var(--lwa-font-head); letter-spacing: -.04em; white-space: nowrap; margin-right: auto; }
 .lwa-brand img { display: block; width: 42px; height: 27px; }
 
 .lwa-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 26px; font-weight: 700; font-size: .95rem; margin: 0; padding: 0; }
@@ -35,7 +73,7 @@
 .lwa-nav a[aria-current] { color: var(--lwa-accent); text-decoration: underline; text-decoration-color: var(--lwa-pink); text-decoration-thickness: 3px; text-underline-offset: 7px; }
 
 .lwa-cta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 16px; border: 1.5px solid var(--lwa-ink); border-radius: 9px; font-weight: 700; font-size: .95rem; white-space: nowrap; }
-.lwa-cta:hover { background: var(--lwa-ink); color: var(--lwa-paper); text-decoration: none !important; }
+.lwa-cta:hover { background: var(--lwa-ink); color: var(--lwa-bg); text-decoration: none !important; }
 
 @media (max-width: 860px) {
   .lwa-header__inner { padding-block: 14px; }
@@ -54,3 +92,74 @@
 .lwa-footer__col strong { font-family: inherit; font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--lwa-muted); }
 
 @media print { .lwa-header nav, .lwa-cta, .lwa-footer__cols { display: none; } }
+
+.lwa-tools { display: flex; align-items: center; gap: 10px; }
+.lwa-theme { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--lwa-line-strong); background: transparent; color: var(--lwa-ink); cursor: pointer; padding: 0; }
+.lwa-theme:hover { border-color: var(--lwa-ink); }
+.lwa-theme:focus-visible { outline: 3px solid var(--lwa-accent); outline-offset: 3px; }
+.lwa-theme svg { width: 20px; height: 20px; }
+.lwa-theme .lwa-sun { display: none; }
+:root[data-theme="dark"] .lwa-theme .lwa-sun { display: block; }
+:root[data-theme="dark"] .lwa-theme .lwa-moon { display: none; }
+.lwa-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 860px) { .lwa-tools { margin-left: auto; } }
+
+/* ---------- Bridge: root pages (style.css) ---------- */
+:root, html:root[data-theme] {
+  --ink: var(--lwa-ink); --muted: var(--lwa-muted); --paper: var(--lwa-bg);
+  --purple: var(--lwa-accent); --lavender: var(--lwa-tint-blue);
+  --green: var(--lwa-tint-pink); --lime: var(--lwa-tint-pink);
+  --peach: var(--lwa-surface-2); --line: var(--lwa-line);
+  --head: var(--lwa-font-head); --body: var(--lwa-font-body);
+}
+.lwa-main a:focus-visible, .lwa-main .button:focus-visible { outline-color: var(--lwa-accent); }
+.lwa-main .hero { background: var(--lwa-hero); }
+.lwa-main .primary { background: var(--lwa-ink); color: var(--lwa-bg); }
+.lwa-main .eyebrow > span, .lwa-main .speaking-map__dot { background: var(--lwa-pink); fill: var(--lwa-pink); }
+.lwa-main .work-with-april summary, .lwa-main .speaker-section summary, .lwa-main .speaking-map__details a, .lwa-main .speaking-map__figure a { color: var(--lwa-accent); }
+.lwa-main .speaking-map__city.is-active { background: var(--lwa-accent); color: var(--lwa-on-accent); }
+.lwa-main .update-card, .lwa-main .card, .lwa-main .featured-offer, .lwa-main .feature-card, .lwa-main .training-notice, .lwa-main .speaking-map__details, .lwa-main .speaking-map__city, .lwa-main .chips a, .lwa-main .portrait figcaption, .lwa-main .skip, .lwa-main .training-field input, .lwa-main .training-field select, .lwa-main .training-field textarea {
+  background: var(--lwa-surface); color: var(--lwa-ink);
+}
+:root[data-theme="dark"] .lwa-main .feature { background: var(--lwa-surface-2); color: var(--lwa-ink); border: 1px solid var(--lwa-line); }
+:root[data-theme="dark"] .lwa-main .feature p:not(.eyebrow) { color: var(--lwa-muted); }
+:root[data-theme="dark"] .lwa-main .speaking-playlist h3 { color: inherit; }
+:root[data-theme="dark"] .lwa-main .photo-viewer { background: var(--lwa-surface); color: var(--lwa-ink); }
+:root[data-theme="dark"] .lwa-main .portrait { background: var(--lwa-surface-2); box-shadow: 11px 11px 0 var(--lwa-tint-blue); border-color: var(--lwa-line-strong); }
+:root[data-theme="dark"] .lwa-main .tile-icon { background: #ffffff14; }
+:root[data-theme="dark"] .lwa-main .chips a, :root[data-theme="dark"] .lwa-main .training-field input, :root[data-theme="dark"] .lwa-main .training-field select, :root[data-theme="dark"] .lwa-main .training-field textarea, :root[data-theme="dark"] .lwa-main .icon-button, :root[data-theme="dark"] .lwa-main .speaking-map__city { border-color: var(--lwa-line-strong); }
+:root[data-theme="dark"] .lwa-main .icon-button:hover:not(:disabled) { background: var(--lwa-tint-blue); border-color: var(--lwa-accent); }
+:root[data-theme="dark"] .lwa-main .career-steps article { border-top-color: var(--lwa-line-strong); }
+:root[data-theme="dark"] .lwa-main .feature-card:hover { border-color: var(--lwa-accent); }
+:root[data-theme="dark"] .lwa-main .work-with-april .card { background: var(--lwa-tint-blue); }
+:root[data-theme="dark"] .lwa-main .work-with-april .card:nth-child(2) { background: var(--lwa-tint-pink); }
+:root[data-theme="dark"] .lwa-main .speaker-feature { background: var(--lwa-hero); }
+:root[data-theme="dark"] .lwa-main .speaking-map { background: var(--lwa-tint-blue); border-color: var(--lwa-line); }
+:root[data-theme="dark"] .lwa-main .speaking-map__canvas { background: var(--lwa-bg); }
+:root[data-theme="dark"] .lwa-main .speaking-map__land path { fill: var(--lwa-surface-2); stroke: var(--lwa-line-strong); }
+:root[data-theme="dark"] .lwa-main .speaking-map__label { fill: var(--lwa-ink); stroke: var(--lwa-bg); }
+:root[data-theme="dark"] .lwa-main .speaking-map__dot { stroke: var(--lwa-bg); }
+:root[data-theme="dark"] .lwa-main .feature-track { scrollbar-color: var(--lwa-line-strong) transparent; }
+
+/* ---------- Bridge: talks + watch pages (assets/css/style.css) ---------- */
+:root, html:root[data-theme] {
+  --font-display: var(--lwa-font-head); --font-body: var(--lwa-font-body);
+  --color-bg: var(--lwa-bg); --color-bg-alt: var(--lwa-surface-2);
+  --color-surface: var(--lwa-surface); --color-surface-2: var(--lwa-surface-2);
+  --color-header: var(--lwa-bg);
+  --color-border: var(--lwa-line); --color-border-strong: var(--lwa-line-strong);
+  --color-text: var(--lwa-ink); --color-text-muted: var(--lwa-muted); --color-text-faint: var(--lwa-faint);
+  --color-blue: var(--lwa-blue); --color-blue-strong: var(--lwa-accent); --color-blue-hover: var(--lwa-accent-strong);
+  --color-blue-light: var(--lwa-tint-blue); --color-blue-border: var(--lwa-line-strong);
+  --color-pink: var(--lwa-pink); --color-pink-strong: var(--lwa-pink-text);
+  --color-pink-light: var(--lwa-tint-pink); --color-pink-border: var(--lwa-line-strong);
+  --color-focus: var(--lwa-accent); --color-on-accent: var(--lwa-on-accent);
+}
+
+/* ---------- Bridge: SkillUp (skillup/assets/css/site.css) ---------- */
+:root, html:root[data-theme] {
+  --paper: var(--lwa-bg); --surface: var(--lwa-surface); --surface-2: var(--lwa-surface-2);
+  --sidebar: var(--lwa-bg); --rule: var(--lwa-line); --faint: var(--lwa-faint);
+  --accent: var(--lwa-accent); --accent-ink: var(--lwa-on-accent); --accent-soft: var(--lwa-tint-blue);
+  --brass: var(--lwa-pink-text); --brass-soft: var(--lwa-tint-pink);
+}
