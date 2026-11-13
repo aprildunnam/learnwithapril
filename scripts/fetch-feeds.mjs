@@ -82,13 +82,71 @@ function extract(block, regex) {
 }
 
 async function fetchText(url) {
-  var res = await fetch(url, {
-    headers: { "User-Agent": "learn-with-april-feed-sync/1.0 (+https://learnwithapril.com)" }
-  });
-  if (!res.ok) {
-    throw new Error("Fetch failed (" + res.status + " " + res.statusText + ") for " + url);
+  // YouTube's feeds return occasional 5xx errors, so retry those a few times.
+  var lastError;
+  for (var attempt = 1; attempt <= 3; attempt++) {
+    var res = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; learn-with-april-feed-sync/1.1; +https://learnwithapril.com)",
+        "Accept-Language": "en-US,en;q=0.9"
+      }
+    });
+    if (res.ok) return res.text();
+    lastError = new Error("Fetch failed (" + res.status + " " + res.statusText + ") for " + url);
+    if (res.status < 500) break;
+    await new Promise(function (r) { setTimeout(r, 2000 * attempt); });
   }
-  return res.text();
+  throw lastError;
+}
+
+/** Pull {videoId, title} pairs out of a YouTube page's ytInitialData JSON. */
+function videosFromPageData(html, maxItems) {
+  var m = html.match(/var ytInitialData\s*=\s*(\{[\s\S]*?\});\s*<\/script>/);
+  if (!m) return [];
+  var data;
+  try { data = JSON.parse(m[1]); } catch (e) { return []; }
+  var out = [];
+  var seen = new Set();
+  (function walk(node) {
+    if (!node || typeof node !== "object" || out.length >= maxItems) return;
+    var r = node.playlistVideoRenderer || node.videoRenderer || node.gridVideoRenderer;
+    if (r && r.videoId && !seen.has(r.videoId)) {
+      var t = r.title && (r.title.simpleText || (r.title.runs || []).map(function (x) { return x.text; }).join(""));
+      if (t) {
+        seen.add(r.videoId);
+        out.push({
+          title: t,
+          url: "https://www.youtube.com/watch?v=" + r.videoId,
+          videoId: r.videoId,
+          thumbnail: "https://i.ytimg.com/vi/" + r.videoId + "/hqdefault.jpg",
+          date: null
+        });
+      }
+    }
+    for (var k in node) if (Object.prototype.hasOwnProperty.call(node, k)) walk(node[k]);
+  })(data);
+  return out;
+}
+
+/** Optional: the YouTube Data API is the most reliable source. Used only if a YT_API_KEY secret is set. */
+async function playlistFromApi(playlistId, maxItems) {
+  var key = process.env.YT_API_KEY;
+  if (!key) return null;
+  var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=" + Math.min(maxItems, 50) +
+    "&playlistId=" + encodeURIComponent(playlistId) + "&key=" + encodeURIComponent(key);
+  var json = JSON.parse(await fetchText(url));
+  return (json.items || []).filter(function (i) {
+    return i.snippet && i.snippet.resourceId && i.snippet.title !== "Private video" && i.snippet.title !== "Deleted video";
+  }).map(function (i) {
+    var id = i.snippet.resourceId.videoId;
+    return {
+      title: i.snippet.title,
+      url: "https://www.youtube.com/watch?v=" + id,
+      videoId: id,
+      thumbnail: "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg",
+      date: (i.contentDetails && i.contentDetails.videoPublishedAt) || i.snippet.publishedAt || null
+    };
+  });
 }
 
 async function fetchBlogPosts() {
@@ -135,8 +193,20 @@ async function fetchYoutubeVideos() {
 }
 
 async function fetchSpeakingVideos() {
-  var xml = await fetchText(SPEAKING_FEED_URL);
-  return parseYoutubeFeed(xml, MAX_SPEAKING_ITEMS, false);
+  var fromApi = await playlistFromApi(SPEAKING_PLAYLIST_ID, MAX_SPEAKING_ITEMS).catch(function (e) {
+    console.warn("YouTube Data API unavailable for the speaking playlist:", e.message);
+    return null;
+  });
+  if (fromApi && fromApi.length) return fromApi.slice(0, MAX_SPEAKING_ITEMS);
+  try {
+    var xml = await fetchText(SPEAKING_FEED_URL);
+    var fromFeed = parseYoutubeFeed(xml, MAX_SPEAKING_ITEMS, false);
+    if (fromFeed.length) return fromFeed;
+  } catch (feedError) {
+    console.warn("Speaking playlist feed unavailable, trying the playlist page:", feedError.message);
+  }
+  var html = await fetchText("https://www.youtube.com/playlist?list=" + SPEAKING_PLAYLIST_ID + "&hl=en");
+  return videosFromPageData(html, MAX_SPEAKING_ITEMS);
 }
 
 function parseYoutubeFeed(xml, maxItems, skipPromos) {
@@ -173,7 +243,11 @@ function parseYoutubeFeed(xml, maxItems, skipPromos) {
 }
 
 async function fetchYoutubeVideosFromPage() {
-  var html = await fetchText(YOUTUBE_VIDEOS_URL);
+  var html = await fetchText(YOUTUBE_VIDEOS_URL + "?hl=en");
+  var parsed = videosFromPageData(html, MAX_ITEMS * 2).filter(function (v) {
+    return !/\bcoming (up|soon)\b/i.test(v.title);
+  }).slice(0, MAX_ITEMS);
+  if (parsed.length) return parsed;
   var matches = matchAll(
     html,
     /"contentId":"([A-Za-z0-9_-]{11})"[\s\S]{0,3500}?"accessibilityContext":\{"label":"((?:\\.|[^"])*)"/g
@@ -212,6 +286,9 @@ async function fetchYoutubeVideosFromPage() {
 }
 
 async function writeJson(filename, data) {
+  if (!data.items || !data.items.length) {
+    throw new Error("Got 0 items for " + filename + ", so the last good copy was kept");
+  }
   var fs = await import("node:fs/promises");
   var target = new URL(filename, OUT_DIR);
   await fs.mkdir(OUT_DIR, { recursive: true });

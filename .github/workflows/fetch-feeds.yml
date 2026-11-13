@@ -27,9 +27,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Fetch latest videos & posts
+        id: fetch
+        continue-on-error: true
+        env:
+          # Optional. Add a YT_API_KEY repository secret for the most reliable playlist sync.
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
         run: node scripts/fetch-feeds.mjs
 
       - name: Commit updated data if changed
@@ -43,3 +48,9 @@ jobs:
           git add data/
           git commit -m "chore: sync latest videos & blog posts"
           git push
+
+      - name: Flag a partial sync
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo "::warning::One or more feeds failed. Whatever did sync was saved; the rest kept its last good copy. See the fetch step log."
+          exit 1
