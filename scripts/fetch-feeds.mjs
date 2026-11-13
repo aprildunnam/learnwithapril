@@ -182,6 +182,17 @@ async function fetchBlogPosts() {
 }
 
 async function fetchYoutubeVideos() {
+  // Channel uploads playlist = "UU" + channel ID without its "UC" prefix.
+  var uploads = "UU" + YOUTUBE_FEED_URL.split("channel_id=UC")[1];
+  var fromApi = await playlistFromApi(uploads, MAX_ITEMS * 3).catch(function (e) {
+    console.warn("YouTube Data API unavailable for latest videos:", e.message);
+    return null;
+  });
+  if (fromApi && fromApi.length) {
+    return fromApi.filter(function (v) {
+      return !/#shorts?\b/i.test(v.title) && !/\bcoming (up|soon)\b/i.test(v.title);
+    }).slice(0, MAX_ITEMS);
+  }
   var xml;
   try {
     xml = await fetchText(YOUTUBE_FEED_URL);

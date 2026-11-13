@@ -29,6 +29,7 @@
     talks: {
       url: "/data/speaking-videos.json",
       empty: "Talk recordings will appear here once the daily sync runs.",
+      emptyHtml: 'Watch my talks and keynotes on the <a href="https://www.youtube.com/playlist?list=PLINAH02_IDH-knetYe3AuT3dNO2sXDooa">YouTube playlist</a>.',
       error: 'The talks playlist could not be loaded. <a href="https://www.youtube.com/playlist?list=PLINAH02_IDH-knetYe3AuT3dNO2sXDooa">Watch the playlist on YouTube</a>.',
       render: renderVideoCard
     }
@@ -145,7 +146,8 @@
           if (!toRender.length) {
             var empty = document.createElement("p");
             empty.className = "update-empty";
-            empty.textContent = settings.empty;
+            if (settings.emptyHtml) empty.innerHTML = settings.emptyHtml;
+            else empty.textContent = settings.empty;
             container.appendChild(empty);
             return;
           }
