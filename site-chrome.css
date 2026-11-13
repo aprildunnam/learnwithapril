@@ -164,3 +164,4 @@
   --accent: var(--lwa-accent); --accent-ink: var(--lwa-accent-strong); --accent-soft: var(--lwa-tint-blue);
   --brass: var(--lwa-pink-text); --brass-soft: var(--lwa-tint-pink);
 }
+:root[data-theme="dark"] .lwa-main .feature .eyebrow { color: var(--lwa-pink-text); }
