@@ -638,3 +638,7 @@ select {
 @media (max-width: 900px) {
   .forge-pane:last-child { position: static; max-height: none; }
 }
+
+/* h4-styled headings promoted to h3 for a valid heading order */
+h3[data-h="4"] { font-size: 17px; margin: 26px 0 8px; font-family: var(--lwa-font-body); font-weight: 700; }
+.card h3[data-h="4"] { margin-top: 0; }

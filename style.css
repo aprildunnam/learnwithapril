@@ -172,7 +172,7 @@ button.button{cursor:pointer;font-family:inherit}button.button:disabled{cursor:w
 .speaking-map__city small{display:none}
 .speaking-map__city.is-active{background:#07577a;color:white}
 .speaking-map__details{background:#fff;border-radius:10px;padding:10px 14px}
-.speaking-map__details h4,.speaking-map__details ul{margin:0}
+.speaking-map__details h3,.speaking-map__details h4,.speaking-map__details ul{margin:0}
 .speaking-map__details ul{padding-left:18px}
 .speaking-map__details a,.speaking-map__figure a{color:#07577a;text-decoration:underline}
 .speaking-location-list{margin-top:12px}

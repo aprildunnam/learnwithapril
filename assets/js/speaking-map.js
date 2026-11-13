@@ -74,14 +74,14 @@
 
     if (!location) {
       details.append(
-        element("h4", "No stops in this view"),
+        element("h3", "No stops in this view"),
         element("p", "Try another map view or date filter. Online appearances stay in the list below.")
       );
       if (focusedLink) region.focus({ preventScroll: true });
       return;
     }
 
-    details.append(element("h4", location.city), element("p", location.country));
+    details.append(element("h3", location.city), element("p", location.country));
     const list = element("ul");
     location.events.forEach((card) => {
       const item = element("li");
