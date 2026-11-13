@@ -159,7 +159,8 @@
 /* ---------- Bridge: SkillUp (skillup/assets/css/site.css) ---------- */
 :root, html:root[data-theme] {
   --paper: var(--lwa-bg); --surface: var(--lwa-surface); --surface-2: var(--lwa-surface-2);
-  --sidebar: var(--lwa-bg); --rule: var(--lwa-line); --faint: var(--lwa-faint);
-  --accent: var(--lwa-accent); --accent-ink: var(--lwa-on-accent); --accent-soft: var(--lwa-tint-blue);
+  /* note: SkillUp's --sidebar is the sidebar WIDTH, so it is left alone */
+  --rule: var(--lwa-line); --faint: var(--lwa-faint);
+  --accent: var(--lwa-accent); --accent-ink: var(--lwa-accent-strong); --accent-soft: var(--lwa-tint-blue);
   --brass: var(--lwa-pink-text); --brass-soft: var(--lwa-tint-pink);
 }
