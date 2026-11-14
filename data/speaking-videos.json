@@ -1,5 +1,90 @@
 {
-    "source": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLINAH02_IDH-knetYe3AuT3dNO2sXDooa",
-    "generatedAt": null,
-    "items": []
+  "source": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLINAH02_IDH-knetYe3AuT3dNO2sXDooa",
+  "generatedAt": "2026-11-14T18:39:35.741Z",
+  "items": [
+    {
+      "title": "Delegating Real Work to Copilot Cowork",
+      "url": "https://www.youtube.com/watch?v=5yAwYHuZscM",
+      "videoId": "5yAwYHuZscM",
+      "thumbnail": "https://i2.ytimg.com/vi/5yAwYHuZscM/hqdefault.jpg",
+      "date": "2026-10-24T04:59:39.000Z"
+    },
+    {
+      "title": "Building agents with the GitHub Copilot Harness with Agent Academy",
+      "url": "https://www.youtube.com/watch?v=M15R6ZvgTQ0",
+      "videoId": "M15R6ZvgTQ0",
+      "thumbnail": "https://i2.ytimg.com/vi/M15R6ZvgTQ0/hqdefault.jpg",
+      "date": "2026-10-20T07:10:10.000Z"
+    },
+    {
+      "title": "Announcing your PPCC and Ignite plan | Mondays at Microsoft (Episode 93)",
+      "url": "https://www.youtube.com/watch?v=5yFBiJ2_aZg",
+      "videoId": "5yFBiJ2_aZg",
+      "thumbnail": "https://i2.ytimg.com/vi/5yFBiJ2_aZg/hqdefault.jpg",
+      "date": "2026-10-20T03:36:26.000Z"
+    },
+    {
+      "title": "Skill up on Microsoft Copilot Studio",
+      "url": "https://www.youtube.com/watch?v=dN_birVmIHs",
+      "videoId": "dN_birVmIHs",
+      "thumbnail": "https://i1.ytimg.com/vi/dN_birVmIHs/hqdefault.jpg",
+      "date": "2026-10-09T18:21:53.000Z"
+    },
+    {
+      "title": "🎖️ Captain's Training: Master Copilot Studio | Use the New Harness, MCPs and More",
+      "url": "https://www.youtube.com/watch?v=v58Mvvm3H5Q",
+      "videoId": "v58Mvvm3H5Q",
+      "thumbnail": "https://i3.ytimg.com/vi/v58Mvvm3H5Q/hqdefault.jpg",
+      "date": "2026-09-30T18:00:20.000Z"
+    },
+    {
+      "title": "April Dunnam | M365 After 5 Ep. 1",
+      "url": "https://www.youtube.com/watch?v=xIkYgh_ALZU",
+      "videoId": "xIkYgh_ALZU",
+      "thumbnail": "https://i1.ytimg.com/vi/xIkYgh_ALZU/hqdefault.jpg",
+      "date": "2026-09-16T21:01:06.000Z"
+    },
+    {
+      "title": "DUG24: Hour 9 April Dunnam - Copilots & Agents: A Field Guide to Navigating the New Landscape",
+      "url": "https://www.youtube.com/watch?v=ayh00EOzc_Y",
+      "videoId": "ayh00EOzc_Y",
+      "thumbnail": "https://i2.ytimg.com/vi/ayh00EOzc_Y/hqdefault.jpg",
+      "date": "2026-08-04T20:17:26.000Z"
+    },
+    {
+      "title": "Introduction on extending Copilot Cowork",
+      "url": "https://www.youtube.com/watch?v=EBohc3edEFU",
+      "videoId": "EBohc3edEFU",
+      "thumbnail": "https://i2.ytimg.com/vi/EBohc3edEFU/hqdefault.jpg",
+      "date": "2026-08-04T07:10:24.000Z"
+    },
+    {
+      "title": "Build a Microsoft Learn MCP Agent in Copilot Studio with April Dunnam",
+      "url": "https://www.youtube.com/watch?v=uI97lSRNBMU",
+      "videoId": "uI97lSRNBMU",
+      "thumbnail": "https://i2.ytimg.com/vi/uI97lSRNBMU/hqdefault.jpg",
+      "date": "2026-07-31T15:48:07.000Z"
+    },
+    {
+      "title": "Transforming your Power Apps to Copilot Agents",
+      "url": "https://www.youtube.com/watch?v=eoRhCZ3Qdrk",
+      "videoId": "eoRhCZ3Qdrk",
+      "thumbnail": "https://i2.ytimg.com/vi/eoRhCZ3Qdrk/hqdefault.jpg",
+      "date": "2026-06-16T07:00:15.000Z"
+    },
+    {
+      "title": "Agents League: Enterprise Agents Battle",
+      "url": "https://www.youtube.com/watch?v=Z38SkzH3SVY",
+      "videoId": "Z38SkzH3SVY",
+      "thumbnail": "https://i3.ytimg.com/vi/Z38SkzH3SVY/hqdefault.jpg",
+      "date": "2026-06-11T17:13:34.000Z"
+    },
+    {
+      "title": "Copilot, Microsoft 365 & Power Platform weekly call – 2nd of June, 2026",
+      "url": "https://www.youtube.com/watch?v=et-p4bSdT5M",
+      "videoId": "et-p4bSdT5M",
+      "thumbnail": "https://i2.ytimg.com/vi/et-p4bSdT5M/hqdefault.jpg",
+      "date": "2026-06-03T06:45:45.000Z"
+    }
+  ]
 }
