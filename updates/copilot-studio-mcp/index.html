@@ -122,6 +122,20 @@
 .ig-update>div{min-width:0}
 .ws-copy pre{overflow-wrap:anywhere;padding-top:50px}
 .ws-copy pre code,.mcp-setup pre code{background:none;padding:0;border-radius:0;font-size:inherit}
+.mcp-three>div{grid-template-columns:120px repeat(3,minmax(0,1fr))}
+.gt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.gt-card{background:var(--lwa-surface);border:1px solid var(--lwa-line);border-radius:16px;padding:22px;min-width:0}
+.gt-card h3{font-size:1.2rem;margin:0 0 10px}
+.gt-card p{line-height:1.6;margin:0 0 10px}
+.gt-card .ws-list{gap:8px;font-size:.97rem}
+.gt-key{grid-column:span 2;background:var(--lwa-tint-pink);border-color:var(--lwa-pink-text)}
+.gt-wide{grid-column:span 2}
+.gt-cols{display:block;columns:2;column-gap:36px}
+.gt-cols{padding-left:0}
+.gt-cols li{break-inside:avoid;margin:0 0 8px 1.2em}
+.gt-flag{font-weight:700;color:var(--lwa-pink-text)}
+@media (max-width:1000px){.gt-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.gt-grid{grid-template-columns:1fr}.gt-cols{columns:1}.gt-key,.gt-wide{grid-column:auto}.mcp-three>div{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body class="lwa-main ig ws mcp"><a class="skip" href="#main">Skip to content</a>
@@ -130,15 +144,15 @@
 <section class="subhero"><div class="wrap">
   <p class="eyebrow"><span></span>IGNITE 2026 FOLLOW-UP · HANDS-ON TUTORIAL</p>
   <h1>Build a Copilot Studio agent <em>without opening Copilot Studio.</em></h1>
-  <p class="lede">Copilot Studio MCP plugs your coding agent, like GitHub Copilot or Claude Code, straight into Copilot Studio. You describe the agent, review what it proposes, and it creates, tests and publishes for you. Here's how to set it up and build your first one safely.</p>
+  <p class="lede">Copilot Studio MCP plugs your coding agent, like GitHub Copilot or Claude Code, straight into Copilot Studio. You describe the agent, review what it proposes, and it creates, tests and publishes for you. Here's how to set it up and build your first one safely, plus the no-code route through Cowork and the gotchas to know first.</p>
   <div class="ig-key" role="group" aria-label="Status"><strong>Status</strong><span class="badge badge--preview">Copilot Studio MCP · Public preview</span><span class="badge badge--preview">Copilot Studio CLI · Preview</span></div>
-  <p class="ig-meta"><span>By <a href="/about/">April Dunnam</a></span><span aria-hidden="true">·</span><time datetime="2026-11-19">November 19, 2026</time><span aria-hidden="true">·</span><span>12 min read</span></p>
+  <p class="ig-meta"><span>By <a href="/about/">April Dunnam</a></span><span aria-hidden="true">·</span><time datetime="2026-11-19">November 19, 2026</time><span aria-hidden="true">·</span><span>15 min read</span></p>
   <div class="ig-actions">
     <a class="button primary" href="#setup">Jump to setup <span aria-hidden="true">↓</span></a>
     <a class="button secondary" href="/updates/ignite-2026/">All Ignite 2026 updates <span aria-hidden="true">→</span></a>
   </div>
   <nav class="ig-toc" aria-label="Jump to a section">
-    <a href="#what-it-is">What it is</a><a href="#mcp-or-cli">MCP or CLI?</a><a href="#before">Before you start</a><a href="#setup">Set it up</a><a href="#connect">Connect safely</a><a href="#first-agent">Your first agent</a><a href="#tools">The five tools</a><a href="#guardrails">Guardrails</a><a href="#when">When to use it</a>
+    <a href="#what-it-is">What it is</a><a href="#mcp-or-cli">Three ways in</a><a href="#before">Before you start</a><a href="#setup">Set it up</a><a href="#connect">Connect safely</a><a href="#first-agent">Your first agent</a><a href="#tools">The five tools</a><a href="#guardrails">Guardrails</a><a href="#gotchas">Gotchas &amp; licensing</a><a href="#when">When to use it</a>
   </nav>
 </div></section>
 
@@ -155,17 +169,18 @@
   </article>
 
   <article class="ig-update" id="mcp-or-cli" aria-labelledby="h-mvc" style="display:block">
-    <p class="kicker"><span></span>MCP or CLI?</p>
-    <h2 id="h-mvc">Two ways in, and you can use both</h2>
-    <p class="lede" style="max-width:760px">Microsoft shipped two developer paths into Copilot Studio at the same time. They solve different problems.</p>
-    <div class="ws-compare mcp-compare" role="table" aria-label="Copilot Studio MCP compared with the Copilot Studio CLI">
-      <div role="row" class="ws-head"><span role="columnheader"></span><span role="columnheader">Copilot Studio MCP</span><span role="columnheader">Copilot Studio CLI (msagent)</span></div>
-      <div role="row"><span role="rowheader">How it feels</span><span role="cell">A conversation. You ask, your coding agent calls the tools.</span><span role="cell">Files and commands. Your agent is a folder of YAML you can review in Git.</span></div>
-      <div role="row"><span role="rowheader">Best for</span><span role="cell">Building and testing fast, inspecting what exists, fixing a broken workflow</span><span role="cell">Team code review, deploying the same agent to dev, test and production, and keeping evaluations with each release</span></div>
-      <div role="row"><span role="rowheader">You need</span><span role="cell">Node.js and an MCP client</span><span role="cell">The .NET 10 SDK, on Windows or macOS</span></div>
-      <div role="row"><span role="rowheader">Install</span><span role="cell"><code>npx -y @microsoft/copilot-studio-mcp@latest</code></span><span role="cell"><code>dotnet tool install --global Microsoft.Agents.Hosting.Cli --prerelease</code></span></div>
+    <p class="kicker"><span></span>Three ways in</p>
+    <h2 id="h-mvc">Three ways to build without opening Copilot Studio</h2>
+    <p class="lede" style="max-width:760px">Microsoft shipped three routes into Copilot Studio at once. Each one builds a real Copilot Studio agent you can open in the portal later. They're built for different people.</p>
+    <div class="ws-compare mcp-compare mcp-three" role="table" aria-label="Copilot Cowork, Copilot Studio MCP and the Copilot Studio CLI compared">
+      <div role="row" class="ws-head"><span role="columnheader"></span><span role="columnheader">Copilot Cowork</span><span role="columnheader">Copilot Studio MCP</span><span role="columnheader">Copilot Studio CLI</span></div>
+      <div role="row"><span role="rowheader">Best for</span><span role="cell">Business users who just want to describe the job</span><span role="cell">Makers and devs who live in a coding agent</span><span role="cell">Teams who want Git, code review and a release process</span></div>
+      <div role="row"><span role="rowheader">How it feels</span><span role="cell">Ask in a Cowork chat. It picks agent, workflow or both</span><span role="cell">A conversation in your coding agent, which calls the tools</span><span role="cell">Files and commands. Your agent is YAML you deploy to dev, test and prod</span></div>
+      <div role="row"><span role="rowheader">Setup</span><span role="cell">None. It's a built-in Copilot Studio skill</span><span role="cell">Node.js plus one <code>npx</code> line in your client</span><span role="cell">.NET 10 SDK on Windows or macOS</span></div>
+      <div role="row"><span role="rowheader">You can</span><span role="cell">Create, edit, compare, test, evaluate, publish and troubleshoot</span><span role="cell">Create, test, evaluate, publish, share, diagnose workflows, check credits</span><span role="cell">Clone, edit locally, deploy, evaluate with CSV test sets, publish, test from the terminal</span></div>
+      <div role="row"><span role="rowheader">Status</span><span role="cell"><span class="badge badge--frontier">Frontier</span></span><span role="cell"><span class="badge badge--preview">Public preview</span></span><span role="cell"><span class="badge badge--preview">Preview</span></span></div>
     </div>
-    <p style="margin-top:14px;color:var(--lwa-muted)">This tutorial focuses on MCP. You don't need any terminal experience to start, because your coding agent does the typing. The CLI is the next step once your agent needs a proper release process.</p>
+    <p style="margin-top:14px;color:var(--lwa-muted)">This tutorial walks through MCP. If you don't use a coding agent, try it in Cowork: <em>"Create a Copilot Studio agent that answers questions about our travel policy using the policy documents on our HR SharePoint site."</em> The CLI is the next step once a team owns the agent.</p>
   </article>
 
   <article class="ig-update" id="before" aria-labelledby="h-before">
@@ -309,12 +324,94 @@ Distinguish proposed work, saved changes, publication, deployment, and execution
     </div>
   </article>
 
+  <section class="ig-update" id="gotchas" aria-labelledby="h-gotchas" style="display:block">
+    <p class="kicker"><span></span>Gotchas and trade-offs</p>
+    <h2 id="h-gotchas">What to know before you pick a route</h2>
+    <p class="lede" style="max-width:780px">These are the things I'd want someone to tell me before I rolled this out to a team. All of it comes from Microsoft's docs, and much of it is still in preview, so it'll change.</p>
+
+    <div class="gt-grid">
+      <section class="gt-card gt-key">
+        <h3>Billing starts when you start building</h3>
+        <p>New agents run on the <strong>Microsoft Copilot harness</strong>, which uses usage-based billing in Copilot Credits. Unlike classic (standard harness) agents, which bill after you publish, it charges <strong>from the moment you start building</strong>. Previewing, testing and generating evaluations all count.</p>
+        <ul class="ws-list">
+          <li>Credits are charged to the <strong>environment</strong>, not to the maker. Ask your admin for a dev environment with an agent limit set.</li>
+          <li>Cowork and Copilot Code need a Microsoft 365 Copilot license and use usage-based billing, managed in Copilot cost management in the Microsoft 365 admin center.</li>
+          <li>Your coding agent (GitHub Copilot, Claude Code) has its own subscription on top of Copilot Studio.</li>
+        </ul>
+      </section>
+
+      <section class="gt-card">
+        <h3>Which agents does this cover?</h3>
+        <p>Copilot Studio now has three <strong>harnesses</strong>: Microsoft Copilot (reasoning-heavy work), Customer Conversation (voice and chat for customers) and standard (the classic, topic-based agents). Microsoft documents Copilot Studio MCP in the Microsoft Copilot harness section, and that's where Cowork's agents land too.</p>
+        <p class="gt-flag">Microsoft doesn't clearly say whether MCP and the CLI fully support classic agents. If your agent uses topics, test on a copy first.</p>
+      </section>
+
+      <section class="gt-card">
+        <h3>The harness has trade-offs</h3>
+        <p>Compared with classic agents, the Microsoft Copilot harness currently <strong>doesn't support</strong>:</p>
+        <ul class="ws-list">
+          <li>SharePoint, WhatsApp or Dynamics 365 Contact Center channels</li>
+          <li>Manual or custom authentication</li>
+          <li>Custom entities, or Azure AI Search as knowledge</li>
+          <li>The Prompt tool (replaced by skills). Computer use is planned</li>
+          <li>Dataverse for Teams environments</li>
+        </ul>
+        <p class="gt-flag">You can't move a harness agent back to classic, and harness agents can't call classic agents.</p>
+      </section>
+
+      <section class="gt-card">
+        <h3>MCP gotchas</h3>
+        <ul class="ws-list">
+          <li><strong>Tools vary.</strong> What you see depends on rollout, environment, permissions and your client's policy.</li>
+          <li><strong>Connections aren't automatic.</strong> MCP access doesn't authorize connectors. If the server doesn't offer connector setup, finish it in the Copilot Studio portal.</li>
+          <li><strong>Draft isn't published.</strong> Saving a draft and publishing are separate steps.</li>
+          <li><strong>Timeouts lie.</strong> A client timeout doesn't prove the change failed. Check before you retry.</li>
+          <li><strong>FedRAMP High orgs:</strong> the Microsoft Copilot harness agent turns off at runtime.</li>
+        </ul>
+      </section>
+
+      <section class="gt-card">
+        <h3>CLI gotchas</h3>
+        <ul class="ws-list">
+          <li><strong>Preview, not for production</strong>, and it isn't an offline runtime. Running agents and evaluations still uses the cloud and credits. <code>--debug</code> isn't a dry run.</li>
+          <li><strong>Git doesn't hold the connection.</strong> A fresh checkout doesn't reconnect to the cloud agent. Keep <code>.mcs</code> in <code>.gitignore</code> and clone into an empty workspace instead.</li>
+          <li><strong>A clone isn't a copy.</strong> Cloning an agent in the same environment stays linked to the original, so deploying updates it. Forking is planned.</li>
+          <li><strong>Portal edits cause drift.</strong> If someone edits in the portal, pull and review conflicts before you deploy. Pulling a standalone workflow replaces your local copy instead of merging.</li>
+          <li><strong>Connections are per environment</strong> and need binding for each deployment. Some still need interactive consent.</li>
+        </ul>
+      </section>
+
+      <section class="gt-card">
+        <h3>Cowork gotchas</h3>
+        <ul class="ws-list">
+          <li><strong>Frontier only</strong> for now, so it needs Frontier access and a Copilot license.</li>
+          <li><strong>Everything lands in Copilot Studio</strong> and follows your Power Platform environment, connector, DLP and publishing policies. If a policy blocks something, Cowork tells you why.</li>
+          <li><strong>Great for starting, not for teams.</strong> It has no Git or review process, so move to the CLI when several people own the agent.</li>
+        </ul>
+      </section>
+
+      <section class="gt-card gt-wide">
+        <h3>What you'll still open the portal for</h3>
+        <p>"Without opening Copilot Studio" is true for building. You'll still want the portal for some jobs:</p>
+        <ul class="ws-list gt-cols">
+          <li>Connector setup and consent the server doesn't offer</li>
+          <li>Confirming who can access a published agent</li>
+          <li>Seeing the whole agent at once, visually</li>
+          <li>Environment and credit limits, set by your admin in the Power Platform admin center</li>
+          <li>Monitor and analytics on real usage</li>
+          <li>Anything your org hasn't approved for local authoring</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
   <article class="ig-update" id="when" aria-labelledby="h-when">
     <div>
       <p class="kicker"><span></span>When to use it</p>
-      <h2 id="h-when">Portal, MCP or CLI?</h2>
+      <h2 id="h-when">Portal, Cowork, MCP or CLI?</h2>
       <ul class="ws-list">
         <li><strong>Stay in the Copilot Studio portal</strong> when you like building visually, or your org hasn't approved local authoring. It's still the best place to see the whole agent at once.</li>
+        <li><strong>Use Cowork</strong> when you don't write code and just want to describe the job. It's the fastest start if you have Frontier access.</li>
         <li><strong>Use Copilot Studio MCP</strong> when you already live in VS Code or a terminal, want to build and test in one conversation, or need to inspect lots of agents and workflows quickly.</li>
         <li><strong>Move to the CLI</strong> when a team owns the agent and you want changes reviewed in Git and deployed to dev, test and production the same way every time.</li>
       </ul>
@@ -332,7 +429,7 @@ Distinguish proposed work, saved changes, publication, deployment, and execution
     </div>
   </section>
 
-  <p class="ig-sources">Sources: Microsoft Learn, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp">Connect to Microsoft Copilot Studio with MCP</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp-configure">Configure access to Copilot Studio MCP</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp-vscode-copilot-cli">Connect with Visual Studio Code and GitHub Copilot CLI</a> and <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/developer/agents/cli/">Develop Copilot Studio agents with the CLI (preview)</a>. Tools and commands are as documented on November 19, 2026, and can change during preview.</p>
+  <p class="ig-sources">Sources: Microsoft Learn, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp">Connect to Microsoft Copilot Studio with MCP</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp-configure">Configure access to Copilot Studio MCP</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/copilot-studio-mcp-vscode-copilot-cli">Connect with Visual Studio Code and GitHub Copilot CLI</a> and <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/developer/agents/cli/">Develop Copilot Studio agents with the CLI (preview)</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/developer/agents/cli/troubleshoot">Diagnose CLI problems</a>, <a href="https://learn.microsoft.com/copilot/cowork/cowork-create-manage-artifacts">Create Copilot Studio artifacts with Copilot Cowork (Frontier)</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/guidance/choose-harness">Compare Copilot Studio agent harnesses</a>, <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/overview">About agents powered by the Microsoft Copilot harness</a> and <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/billing-credit-overview">Overview of usage-based billing</a>. Tools and commands are as documented on November 19, 2026, and can change during preview.</p>
 </div>
 </main>
 <script>
