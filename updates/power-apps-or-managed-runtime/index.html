@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><script src="/theme.js?v=511a076"></script><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Power Apps or Copilot Managed Runtime? Pick the right home for your app | Learn with April</title>
-<meta name="description" content="A 2-minute picker to choose between canvas apps, model-driven apps, code apps, Power Pages and Copilot Managed Runtime, with what your users need to run each one.">
+<meta name="description" content="Where canvas apps, model-driven apps, code apps, Power Pages and Copilot Managed Runtime run, how they're managed, their strengths and watch-outs, plus a 2-minute picker.">
 <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css?v=610131">
 <link rel="canonical" href="https://learnwithapril.com/updates/power-apps-or-managed-runtime/">
 <link rel="stylesheet" href="/site-chrome.css?v=609092">
 <meta property="og:type" content="article"><meta property="og:site_name" content="Learn with April">
 <meta property="og:url" content="https://learnwithapril.com/updates/power-apps-or-managed-runtime/">
 <meta property="og:title" content="Power Apps or Copilot Managed Runtime? Pick the right home for your app">
-<meta property="og:description" content="Canvas, model-driven, code apps, Power Pages or Copilot Managed Runtime? Answer six questions and see what your users need to run it.">
+<meta property="og:description" content="Where each option runs, how it's managed, what it's great at and where it bites. Plus a 7-question picker.">
 <meta property="og:image" content="https://learnwithapril.com/assets/img/power-apps-or-managed-runtime/cover.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">
 <meta property="og:image:alt" content="Power Apps or Copilot Managed Runtime? A decision tool from Learn with April.">
 <meta property="article:published_time" content="2026-11-19">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@aprildunnam">
 <meta name="twitter:image" content="https://learnwithapril.com/assets/img/power-apps-or-managed-runtime/cover.jpg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Power Apps or Copilot Managed Runtime? Pick the right home for your app", "description": "A 2-minute picker to choose between canvas apps, model-driven apps, code apps, Power Pages and Copilot Managed Runtime, with what your users need to run each one.", "datePublished": "2026-11-19", "dateModified": "2026-11-19", "author": {"@type": "Person", "name": "April Dunnam", "url": "https://learnwithapril.com/about/"}, "publisher": {"@type": "Organization", "name": "Learn with April", "url": "https://learnwithapril.com/"}, "image": "https://learnwithapril.com/assets/img/power-apps-or-managed-runtime/cover.jpg", "mainEntityOfPage": "https://learnwithapril.com/updates/power-apps-or-managed-runtime/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Power Apps or Copilot Managed Runtime? Pick the right home for your app", "description": "Where canvas apps, model-driven apps, code apps, Power Pages and Copilot Managed Runtime run, how they're managed, their strengths and watch-outs, plus a 2-minute picker.", "datePublished": "2026-11-19", "dateModified": "2026-11-19", "author": {"@type": "Person", "name": "April Dunnam", "url": "https://learnwithapril.com/about/"}, "publisher": {"@type": "Organization", "name": "Learn with April", "url": "https://learnwithapril.com/"}, "image": "https://learnwithapril.com/assets/img/power-apps-or-managed-runtime/cover.jpg", "mainEntityOfPage": "https://learnwithapril.com/updates/power-apps-or-managed-runtime/"}</script>
 <style>
 <style>
 .ig{--ig-gap:clamp(18px,3vw,28px)}
@@ -164,9 +164,39 @@
 .pmr-card dd{margin:0;color:var(--lwa-muted);line-height:1.5}
 .pmr-card--cmr dd{color:var(--lwa-ink)}
 .pmr-fine{color:var(--lwa-muted);font-size:.95rem;margin-top:14px}
-.biw-result ul{margin:0 0 14px;max-width:760px;padding-left:1.1em;line-height:1.6;display:grid;gap:4px}
+.biw-result ul{margin:0 0 14px;padding-left:1.1em;line-height:1.6;display:grid;gap:4px}
 .ws-compare code{font-size:.92em;background:var(--lwa-tint-blue);padding:1px 6px;border-radius:5px}
 @media (max-width:900px){.pmr-cards{grid-template-columns:1fr}}
+.pmr-spectrum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:24px;border-radius:16px;overflow:hidden;border:1px solid var(--lwa-line)}
+.pmr-stop{padding:20px 20px 22px;background:var(--lwa-surface);border-left:1px solid var(--lwa-line);border-top:6px solid var(--lwa-accent)}
+.pmr-stop:first-child{border-left:0}
+.pmr-stop:nth-child(2){border-top-color:#2F86AE}.pmr-stop:nth-child(4){border-top-color:var(--lwa-muted)}
+.pmr-stop--cmr{background:var(--lwa-tint-pink);border-top-color:var(--lwa-pink-text)}
+.pmr-stop h3{font-size:1.2rem;margin:2px 0 8px}
+.pmr-stop p:last-child{margin:0;color:var(--lwa-muted);line-height:1.55}
+.pmr-stop--cmr p:last-child{color:var(--lwa-ink)}
+.pmr-axis{display:flex;justify-content:space-between;gap:12px;font-weight:700;font-size:.92rem;color:var(--lwa-muted);margin:10px 0 0}
+.pmr-matrix{margin-top:22px;overflow-x:auto;border:1px solid var(--lwa-line);border-radius:16px;background:var(--lwa-surface)}
+.pmr-matrix:focus-visible{outline:3px solid var(--lwa-accent);outline-offset:2px}
+.pmr-matrix table{width:100%;min-width:1060px;border-collapse:collapse;font-size:.95rem;line-height:1.5}
+.pmr-matrix th,.pmr-matrix td{padding:12px 14px;text-align:left;vertical-align:top;border-top:1px solid var(--lwa-line)}
+.pmr-matrix thead th{border-top:0;background:var(--lwa-tint-blue);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.pmr-matrix tbody th[scope=row]{font-weight:800;width:150px;position:sticky;left:0;background:var(--lwa-surface);z-index:1}
+.pmr-matrix td{color:var(--lwa-muted)}
+.pmr-matrix td strong{color:var(--lwa-ink)}
+.pmr-matrix .pmr-col-cmr{background:var(--lwa-tint-pink);color:var(--lwa-ink)}
+.pmr-matrix thead .pmr-col-cmr{background:var(--lwa-tint-pink)}
+.pmr-group th{background:var(--lwa-bg);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--lwa-ink)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pmr-card h4{font-family:var(--lwa-font-body);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin:14px 0 6px;display:flex;gap:8px;align-items:center}
+.pmr-plus::before{content:"+";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--lwa-accent);color:var(--lwa-on-accent);font-size:.9rem}
+.pmr-minus::before{content:"!";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--lwa-pink-text);background:var(--lwa-surface);color:var(--lwa-pink-text);font-size:.8rem;width:18px;height:18px}
+.pmr-card ul{margin:0;padding-left:1.1em;display:grid;gap:5px;color:var(--lwa-muted);line-height:1.5}
+.pmr-card--cmr ul{color:var(--lwa-ink)}
+.pmr-card--cmr{grid-column:span 2}
+.pmr-card--cmr .pmr-cols{display:grid}
+.pmr-reach{margin:0;padding-left:1.1em;display:grid;gap:8px;line-height:1.55;font-size:1.02rem}
+@media (max-width:900px){.pmr-spectrum{grid-template-columns:1fr}.pmr-stop{border-left:0;border-top-width:6px}.pmr-card--cmr{grid-column:auto}}
 
 </style>
 </head>
@@ -176,36 +206,109 @@
 <section class="subhero"><div class="wrap">
   <p class="eyebrow"><span></span>DECISION TOOL · POWER APPS</p>
   <h1>Power Apps or Copilot Managed Runtime? <em>Pick the right home for your app.</em></h1>
-  <p class="lede">You can now build an app by describing it in Cowork, Copilot Code or Copilot Studio, and it runs on Copilot Managed Runtime. So when do you still reach for Power Apps, and which kind? Answer six questions and you'll get a recommendation, plus what your users need to run it.</p>
-  <p class="ig-meta"><span>By <a href="/about/">April Dunnam</a></span><span aria-hidden="true">·</span><time datetime="2026-11-19">November 19, 2026</time><span aria-hidden="true">·</span><span>2-minute tool</span></p>
+  <p class="lede">Copilot Managed Runtime runs anything a modern web app can do, from a tracker to an interactive 3D model, with Microsoft hosting and governing it. Power Apps still wins plenty of jobs too. Here's where each one runs, how it's managed, what it's great at, where it falls short, and a picker to help you choose.</p>
+  <p class="ig-meta"><span>By <a href="/about/">April Dunnam</a></span><span aria-hidden="true">·</span><time datetime="2026-11-19">November 19, 2026</time><span aria-hidden="true">·</span><span>12 min read, 2-minute picker</span></p>
   <div class="ig-actions">
     <a class="button primary" href="#picker">Take the picker <span aria-hidden="true">↓</span></a>
-    <a class="button secondary" href="/updates/power-apps-arent-dead/">What's new in Power Apps <span aria-hidden="true">→</span></a>
+    <a class="button secondary" href="#side-by-side">See the side-by-side <span aria-hidden="true">↓</span></a>
   </div>
   <nav class="ig-toc" aria-label="Jump to a section">
-    <a href="#five-homes">The five options</a><a href="#picker">The picker</a><a href="#licensing">Who pays to run it</a><a href="#overlap">Code apps vs Managed Runtime</a><a href="#rules">Rules of thumb</a>
+    <a href="#spectrum">The big picture</a><a href="#cmr-unlocks">What CMR unlocks</a><a href="#side-by-side">Side by side</a><a href="#tradeoffs">Strengths and watch-outs</a><a href="#picker">The picker</a><a href="#licensing">Who pays to run it</a><a href="#rules">Rules of thumb</a>
   </nav>
 </div></section>
 
 <div class="wrap ig-body">
 
-  <section class="ig-update ig-first" id="five-homes" aria-labelledby="h-homes" style="display:block">
-    <p class="kicker"><span></span>The five options</p>
-    <h2 id="h-homes">Five places an app can live</h2>
-    <p style="max-width:760px;line-height:1.6">Think of it like choosing where a business sets up shop. Each option suits a different kind of tenant, and the rent works differently too.</p>
+  <section class="ig-update ig-first" id="spectrum" aria-labelledby="h-spectrum" style="display:block">
+    <p class="kicker"><span></span>The big picture</p>
+    <h2 id="h-spectrum">It's a spectrum, not a replacement</h2>
+    <p style="max-width:780px;line-height:1.6">Microsoft's own docs put these on a line from <strong>opinionated</strong> to <strong>open</strong>. Think of it like housing. Power Apps is a furnished apartment: walls, plumbing and furniture included, you just arrange it. Copilot Managed Runtime is a custom home on a managed lot: you design anything you like, and the HOA handles security and utilities. Azure is raw land.</p>
+    <div class="pmr-spectrum" role="list" aria-label="From opinionated to open">
+      <div class="pmr-stop" role="listitem"><p class="kind">Most built for you</p><h3>Canvas and model-driven apps</h3><p>Power Fx, drag-and-drop or generated screens, Dataverse forms and views. Fastest for makers, with guardrails baked into the model.</p></div>
+      <div class="pmr-stop" role="listitem"><p class="kind">Code on Power Platform</p><h3>Code apps</h3><p>Your React or Vue code, running inside a Power Platform environment with its connectors and policies.</p></div>
+      <div class="pmr-stop pmr-stop--cmr" role="listitem"><p class="kind">Open code, managed host</p><h3>Copilot Managed Runtime</h3><p>An open-standard web app built from a conversation or a repo. Microsoft runs the host, identity, policy and monitoring.</p></div>
+      <div class="pmr-stop" role="listitem"><p class="kind">All on you</p><h3>Azure custom apps</h3><p>Any framework and service. Your team owns hosting, security, monitoring and deployments.</p></div>
+    </div>
+    <p class="pmr-axis" aria-hidden="true"><span>← More guardrails, faster for makers</span><span>More freedom, more to own →</span></p>
+    <p class="pmr-fine">Power Pages sits beside this line. It's the option for people outside your organization.</p>
+  </section>
+
+  <article class="ig-update" id="cmr-unlocks" aria-labelledby="h-unlocks">
+    <div>
+      <p class="kicker"><span></span>What CMR unlocks</p>
+      <h2 id="h-unlocks">If a browser can do it, your app can too</h2>
+      <p>This is the part people underestimate. A Copilot Managed Runtime app is a full single-page web app, so you're not limited to the controls a designer gives you. In one of my labs this week, someone built an <strong>interactive 3D model</strong>. That's not a canvas app job.</p>
+      <ul class="ig-rows">
+        <li><span class="badge badge--neutral">Any UI</span><p><strong>Any framework or library you can bundle</strong>: 3D and WebGL, maps, rich charts, drag-and-drop boards, animation, canvas drawing. The runtime doesn't impose conventions on your code beyond the SDK.</p></li>
+        <li><span class="badge badge--neutral">Agentic</span><p><strong>Built for agents.</strong> The default policy includes 12 Microsoft MCP servers, like Work IQ for mail, calendar, Teams and SharePoint, and the Power Apps MCP Server, so apps can reason over work context.</p></li>
+        <li><span class="badge badge--neutral">Real ALM</span><p><strong>Git behind every version.</strong> Preview any commit, deploy when you're ready, roll back to an earlier commit, or bring your own GitHub Enterprise Cloud repo.</p></li>
+        <li><span class="badge badge--preview">Preview</span><p><strong>A database when you need one.</strong> Fabric can provide a relational backend for app data, with the schema defined in code.</p></li>
+        <li><span class="badge badge--neutral">Any builder</span><p><strong>Build from anywhere</strong>: Cowork, Copilot Code, Copilot Studio, the <code>ms</code> CLI with your coding agent, or Lovable. Everything lands in one governed place.</p></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ig-why pink"><h3>Why it matters</h3><p>For years, the answer to "can Power Apps do this?" was sometimes "not without a PCF control and a developer." With Copilot Managed Runtime, a business user can describe something ambitious and get a real web app that IT can still see and govern.</p></div>
+      <div class="ig-note"><strong>Know this before you build something fancy</strong><p>The default security policy only loads scripts, fonts and data from the app itself, and turns web workers off. Bundle your libraries into the app instead of pulling them from a CDN. If you truly need an outside source or a web worker, your admin can allow that specific one.</p></div>
+    </div>
+  </article>
+
+  <section class="ig-update" id="side-by-side" aria-labelledby="h-side" style="display:block">
+    <p class="kicker"><span></span>Side by side</p>
+    <h2 id="h-side">Where it runs, and how it's managed</h2>
+    <p style="max-width:780px;line-height:1.6">This is the layer that usually decides it. Where do people open the app, can it go where they already work, and who governs it?</p>
+    <div class="pmr-matrix" tabindex="0" role="region" aria-label="Comparison table, scrolls sideways on small screens">
+      <table>
+        <caption class="sr-only">Comparison of canvas apps, model-driven apps, code apps, Power Pages and Copilot Managed Runtime</caption>
+        <thead><tr><th scope="col"><span class="sr-only">Topic</span></th><th scope="col">Canvas apps</th><th scope="col">Model-driven apps</th><th scope="col">Code apps</th><th scope="col">Power Pages</th><th scope="col" class="pmr-col-cmr">Copilot Managed Runtime</th></tr></thead>
+        <tbody>
+          <tr class="pmr-group"><th scope="rowgroup" colspan="6">Where people use it</th></tr>
+          <tr><th scope="row">Users open it from</th><td>Power Apps on the web, mobile or Windows app</td><td>Power Apps on the web or mobile app</td><td>Power Apps, like other apps in the environment</td><td>A public or sign-in website</td><td class="pmr-col-cmr">The app portal at managedapps.cloud.microsoft, or its direct link</td></tr>
+          <tr><th scope="row">Shows up inside other tools</th><td><strong>Yes.</strong> Teams tabs, SharePoint pages and list forms, Power BI, model-driven forms, websites</td><td>Copilot Chat can show its forms and grids, and agents can use its data</td><td>Not documented</td><td>It's its own site</td><td class="pmr-col-cmr">Not documented yet. Embedding is locked down by default</td></tr>
+          <tr><th scope="row">Phones and offline</th><td><strong>Yes.</strong> Mobile app, offline-first with Dataverse</td><td><strong>Yes.</strong> Mobile app with offline profiles</td><td>Browser</td><td>Mobile browser</td><td class="pmr-col-cmr">Browser. No offline, because custom service workers aren't supported</td></tr>
+          <tr><th scope="row">People outside your org</th><td>Guests through Entra B2B</td><td>Guests through Entra B2B</td><td>Not documented</td><td><strong>Yes.</strong> Built for customers, partners and the public</td><td class="pmr-col-cmr">Not yet. Guests can't open apps today (known issue)</td></tr>
+          <tr class="pmr-group"><th scope="rowgroup" colspan="6">What you can build</th></tr>
+          <tr><th scope="row">How much UI freedom</th><td>Controls and components you arrange, plus PCF code components</td><td>Forms, views and dashboards, plus generative pages and custom pages</td><td>Anything you can code</td><td>Templates and design studio, plus custom code</td><td class="pmr-col-cmr"><strong>Anything you can code</strong>, including 3D, maps and animation</td></tr>
+          <tr><th scope="row">Data</th><td>1,500+ connectors, SharePoint, Dataverse</td><td>Dataverse</td><td>1,500+ connectors from JavaScript</td><td>Dataverse</td><td class="pmr-col-cmr">Connectors, Dataverse, Fabric database (preview)</td></tr>
+          <tr><th scope="row">Connectors on day one</th><td>Whatever your DLP policy allows</td><td>Whatever your DLP policy allows</td><td>Whatever your DLP policy allows</td><td>Whatever your DLP policy allows</td><td class="pmr-col-cmr">19 Microsoft connectors that use Entra sign-in. Admins can add more</td></tr>
+          <tr><th scope="row">AI and agents</th><td>Microsoft Copilot in the app (preview), AI Builder</td><td>Microsoft Copilot in the app, app skills, Work IQ</td><td>Whatever you code</td><td>Copilot features in the studio and site</td><td class="pmr-col-cmr">Work IQ and 12 Microsoft MCP servers allowed by default</td></tr>
+          <tr class="pmr-group"><th scope="rowgroup" colspan="6">How it's managed</th></tr>
+          <tr><th scope="row">Built by</th><td>Makers, now with the authoring agent</td><td>Makers, now with the model app-builder skill</td><td>Developers with the Power Apps CLI</td><td>Makers and developers</td><td class="pmr-col-cmr">Business users, makers and devs, from Cowork, Copilot Code, Copilot Studio, the CLI or Lovable</td></tr>
+          <tr><th scope="row">Source control</th><td>Solutions. Git support varies</td><td>Solutions. Git support varies</td><td>Your repo plus Power Platform ALM</td><td>Solutions</td><td class="pmr-col-cmr"><strong>Git for every app.</strong> Preview a commit, deploy, roll back</td></tr>
+          <tr><th scope="row">Where admins govern it</th><td>Power Platform admin center</td><td>Power Platform admin center</td><td>Power Platform admin center</td><td>Power Platform admin center</td><td class="pmr-col-cmr">Microsoft 365 admin center for apps, Power Platform admin center for environments</td></tr>
+          <tr><th scope="row">Where it's built</th><td>Any environment you choose</td><td>A Dataverse environment</td><td>An environment with code apps turned on</td><td>A Dataverse environment</td><td class="pmr-col-cmr">Each maker's personal managed environment, created for them</td></tr>
+          <tr><th scope="row">To run it, users need</th><td>Standard connectors are covered by most Microsoft 365 plans. Premium needs Power Apps Premium</td><td>Power Apps Premium</td><td>Power Apps Premium, pay-as-you-go or an App Pass</td><td>Power Pages capacity</td><td class="pmr-col-cmr">Power Apps Premium, or Copilot Credits through a spending policy</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pmr-fine">On a small screen, scroll the table sideways. "Not documented yet" means I couldn't find it on Microsoft Learn as of November 19, 2026, not that it'll never happen.</p>
+  </section>
+
+  <section class="ig-update" id="tradeoffs" aria-labelledby="h-trade" style="display:block">
+    <p class="kicker"><span></span>Strengths and watch-outs</p>
+    <h2 id="h-trade">What each one is great at, and where it bites</h2>
     <div class="pmr-cards">
-      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Canvas apps</h3><p class="pmr-analogy">A blank storefront you lay out yourself.</p><dl><dt>Best for</dt><dd>Task-focused apps on SharePoint, Microsoft 365 or connectors, phones in the field, and offline work</dd><dt>Built by</dt><dd>Makers in Power Apps Studio, now with the authoring agent</dd><dt>To run it</dt><dd>Standard connectors are included with most Microsoft 365 plans. Premium connectors or Dataverse need Power Apps Premium.</dd></dl></article>
-      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Model-driven apps</h3><p class="pmr-analogy">An office building with the filing system already installed.</p><dl><dt>Best for</dt><dd>Record-heavy processes on Dataverse: related tables, security roles, business process flows, auditing</dd><dt>Built by</dt><dd>Makers, now with the model app-builder skill and generative pages</dd><dt>To run it</dt><dd>Power Apps Premium</dd></dl></article>
-      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Code apps</h3><p class="pmr-analogy">A custom-built shop on Power Platform land.</p><dl><dt>Best for</dt><dd>Pro devs who want React or Vue with Power Platform connectors, environments and policies</dd><dt>Built by</dt><dd>Developers in VS Code with the Power Apps CLI</dd><dt>To run it</dt><dd>Power Apps Premium, pay-as-you-go or an App Pass</dd></dl></article>
-      <article class="pmr-card"><p class="kind">Power Pages</p><h3>Power Pages sites</h3><p class="pmr-analogy">The storefront window people outside the company walk up to.</p><dl><dt>Best for</dt><dd>Customers, partners, citizens or anyone outside your organization</dd><dt>Built by</dt><dd>Makers and devs in Power Pages design studio</dd><dt>To run it</dt><dd>Power Pages capacity, based on site visitors</dd></dl></article>
-      <article class="pmr-card pmr-card--cmr"><p class="kind">New at Ignite</p><h3>Copilot Managed Runtime</h3><p class="pmr-analogy">The new building for apps you describe to Copilot.</p><dl><dt>Best for</dt><dd>Apps built by describing them in Cowork, Copilot Code, Copilot Studio, a coding agent or Lovable, governed in the Microsoft 365 admin center</dd><dt>Built by</dt><dd>Business users, makers and pro devs, with Git behind every version</dd><dt>To run it</dt><dd>Power Apps Premium, or Copilot Credits through a spending policy</dd></dl></article>
+      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Canvas apps</h3><p class="pmr-analogy">A blank storefront you lay out yourself.</p>
+        <h4 class="pmr-plus">Strengths</h4><ul><li>Runs on Microsoft 365 licenses with standard connectors</li><li>Works in Teams, SharePoint and Power BI</li><li>Mobile app with offline support</li><li>Huge maker community and know-how</li></ul>
+        <h4 class="pmr-minus">Watch-outs</h4><ul><li>Delegation limits on large data</li><li>UI is limited to the controls you have, unless someone builds a PCF component</li><li>Copilot in canvas apps is still preview, with limits</li></ul></article>
+      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Model-driven apps</h3><p class="pmr-analogy">An office building with the filing system already installed.</p>
+        <h4 class="pmr-plus">Strengths</h4><ul><li>Security roles, business process flows and auditing built in</li><li>Microsoft Copilot in the app is GA</li><li>Its data becomes context for agents through Work IQ</li></ul>
+        <h4 class="pmr-minus">Watch-outs</h4><ul><li>Needs Power Apps Premium and Dataverse</li><li>Looks and feels like a business app, by design</li><li>Copilot in the app also needs a Microsoft 365 Copilot license</li></ul></article>
+      <article class="pmr-card"><p class="kind">Power Apps</p><h3>Code apps</h3><p class="pmr-analogy">A custom-built shop on Power Platform land.</p>
+        <h4 class="pmr-plus">Strengths</h4><ul><li>Full UI control in React or Vue</li><li>Fits teams already running Power Platform environments, solutions and DLP</li><li>Alerting and metrics in Power Platform monitor</li></ul>
+        <h4 class="pmr-minus">Watch-outs</h4><ul><li>Needs a developer to build and maintain it</li><li>Users need Power Apps Premium, pay-as-you-go or an App Pass</li><li>Overlaps heavily with Copilot Managed Runtime</li></ul></article>
+      <article class="pmr-card"><p class="kind">Power Pages</p><h3>Power Pages sites</h3><p class="pmr-analogy">The storefront window people outside the company walk up to.</p>
+        <h4 class="pmr-plus">Strengths</h4><ul><li>The only option here built for external users</li><li>Sign-in or anonymous access, with table permissions on Dataverse</li></ul>
+        <h4 class="pmr-minus">Watch-outs</h4><ul><li>Licensed by site capacity, so plan for traffic</li><li>Overkill for an internal team tool</li></ul></article>
+      <article class="pmr-card pmr-card--cmr"><p class="kind">New at Ignite</p><h3>Copilot Managed Runtime</h3><p class="pmr-analogy">A custom home on a managed lot.</p>
+        <h4 class="pmr-plus">Strengths</h4><ul><li>No UI ceiling: 3D, maps, animation, anything a web app can do</li><li>Anyone can build it by describing it, then a developer can take it further from the same repo</li><li>Work IQ and MCP servers built into the default policy</li><li>Git, previews and rollback for every app</li><li>One inventory, health monitoring and blocking in the Microsoft 365 admin center</li><li>Pay-per-use credits for light users</li></ul>
+        <h4 class="pmr-minus">Watch-outs</h4><ul><li>Microsoft 365 E3 or E5 alone doesn't cover running it</li><li>No offline, and no documented Teams or SharePoint embedding yet</li><li>Guests can't open apps yet</li><li>Only 19 connectors allowed by default, so third-party and custom ones need an admin</li><li>Spending can't be scoped to a single app</li></ul></article>
     </div>
   </section>
 
   <section class="ig-update" id="picker" aria-labelledby="h-picker" style="display:block">
     <p class="kicker"><span></span>The picker</p>
     <h2 id="h-picker">Which one fits your app?</h2>
-    <p class="lede" style="max-width:720px">Answer all six. You'll get a recommendation, the reason, and what your users need to run it.</p>
+    <p class="lede" style="max-width:720px">Answer all seven. You'll get a recommendation, the reason, what your users need to run it, and anything to watch for.</p>
     <form class="biw-form" id="pmr-form" novalidate>
       <fieldset><legend><span>1</span>Is this a new app?</legend>
         <label><input type="radio" name="q1" value="new"> Yes, it's a new idea</label>
@@ -216,29 +319,35 @@
         <label><input type="radio" name="q2" value="org"> People across the company</label>
         <label><input type="radio" name="q2" value="external"> Customers, partners or the public</label>
       </fieldset>
-      <fieldset><legend><span>3</span>Where does the data live?</legend>
-        <label><input type="radio" name="q3" value="m365"> SharePoint, Excel or other Microsoft 365 data</label>
-        <label><input type="radio" name="q3" value="dataverse"> Dataverse, with related tables and security roles</label>
-        <label><input type="radio" name="q3" value="systems"> Other business systems, through connectors or APIs</label>
+      <fieldset><legend><span>3</span>Where will people open it?</legend>
+        <label><input type="radio" name="q3" value="embed"> Inside Teams, SharePoint or Power BI</label>
+        <label><input type="radio" name="q3" value="field"> On a phone in the field, sometimes offline</label>
+        <label><input type="radio" name="q3" value="browser"> In a browser, from a link or app list</label>
       </fieldset>
-      <fieldset><legend><span>4</span>Who'll build and look after it?</legend>
-        <label><input type="radio" name="q4" value="describe"> Me, by describing it to Copilot</label>
-        <label><input type="radio" name="q4" value="maker"> A maker who knows Power Apps</label>
-        <label><input type="radio" name="q4" value="dev"> A developer who wants to write code</label>
+      <fieldset><legend><span>4</span>What does it need to do?</legend>
+        <label><input type="radio" name="q4" value="forms"> Forms, lists and simple screens</label>
+        <label><input type="radio" name="q4" value="process"> Approvals, stages and an audit trail</label>
+        <label><input type="radio" name="q4" value="rich"> Something rich, like 3D, maps, animation or a fully custom design</label>
+        <label><input type="radio" name="q4" value="agentic"> Work alongside Copilot and agents, using email, files and meetings</label>
       </fieldset>
-      <fieldset><legend><span>5</span>What licenses do your users have?</legend>
-        <label><input type="radio" name="q5" value="m365"> Microsoft 365 only, like E3 or E5</label>
-        <label><input type="radio" name="q5" value="premium"> Power Apps Premium</label>
-        <label><input type="radio" name="q5" value="unsure"> Not sure</label>
+      <fieldset><legend><span>5</span>Where does the data live?</legend>
+        <label><input type="radio" name="q5" value="m365"> SharePoint, Excel or other Microsoft 365 data</label>
+        <label><input type="radio" name="q5" value="dataverse"> Dataverse, with related tables and security roles</label>
+        <label><input type="radio" name="q5" value="systems"> Other business systems, through connectors or APIs</label>
       </fieldset>
-      <fieldset><legend><span>6</span>Anything special it needs?</legend>
-        <label><input type="radio" name="q6" value="mobile"> Works on phones in the field, sometimes offline</label>
-        <label><input type="radio" name="q6" value="process"> Approvals, stages and an audit trail</label>
-        <label><input type="radio" name="q6" value="custom"> A fully custom design</label>
-        <label><input type="radio" name="q6" value="none"> Nothing special</label>
+      <fieldset><legend><span>6</span>Who'll build and look after it?</legend>
+        <label><input type="radio" name="q6" value="describe"> Me, by describing it to Copilot</label>
+        <label><input type="radio" name="q6" value="maker"> A maker who knows Power Apps</label>
+        <label><input type="radio" name="q6" value="dev"> A developer who wants to write code</label>
+        <label><input type="radio" name="q6" value="devpp"> A developer on a team that already runs Power Platform environments and solutions</label>
+      </fieldset>
+      <fieldset><legend><span>7</span>What licenses do your users have?</legend>
+        <label><input type="radio" name="q7" value="m365"> Microsoft 365 only, like E3 or E5</label>
+        <label><input type="radio" name="q7" value="premium"> Power Apps Premium</label>
+        <label><input type="radio" name="q7" value="unsure"> Not sure</label>
       </fieldset>
       <div class="biw-actions"><button type="submit" class="button primary">Show my recommendation</button><button type="reset" class="button secondary">Start over</button></div>
-      <p class="biw-error" id="pmr-error" role="alert" hidden>Answer all six questions to see your result.</p>
+      <p class="biw-error" id="pmr-error" role="alert" hidden>Answer all seven questions to see your result.</p>
     </form>
     <div class="biw-result" id="pmr-result" aria-live="polite" tabindex="-1" hidden></div>
     <p class="pmr-fine">This tool gives a starting point, not a licensing quote. Check your agreement or the Power Platform Licensing Guide before you commit.</p>
@@ -248,7 +357,7 @@
     <div>
       <p class="kicker"><span></span>Who pays to run it</p>
       <h2 id="h-lic">The licensing difference nobody's talking about</h2>
-      <p>For a lot of teams this decides it. A canvas app that only uses standard connectors, like SharePoint, runs on the Power Apps rights included with most Microsoft 365 plans. The <strong>same app on Copilot Managed Runtime doesn't</strong>. Microsoft's docs are clear that those included rights don't cover Copilot Managed Runtime, whatever connector it uses.</p>
+      <p>For a lot of teams this decides it. A canvas app that only uses standard connectors, like SharePoint, runs on the Power Apps rights included with most Microsoft 365 plans. The <strong>same app on Copilot Managed Runtime doesn't</strong>. Microsoft's docs say those included rights don't cover Copilot Managed Runtime, whatever connector it uses.</p>
       <div class="ws-compare pmr-table" role="table" aria-label="What a user needs to run each kind of app">
         <div class="ws-head" role="row"><span role="columnheader">User has</span><span role="columnheader">Canvas app, standard connectors</span><span role="columnheader">Copilot Managed Runtime app</span></div>
         <div role="row"><span role="rowheader">Microsoft 365 E3 or E5</span><span role="cell">Runs it</span><span role="cell">Needs a spending policy</span></div>
@@ -261,37 +370,21 @@
     </div>
   </article>
 
-  <article class="ig-update" id="overlap" aria-labelledby="h-overlap">
-    <div>
-      <p class="kicker"><span></span>Code apps vs Managed Runtime</p>
-      <h2 id="h-overlap">The two that look the same</h2>
-      <p>Power Apps code apps and Copilot Managed Runtime apps are both code-first web apps with Entra sign-in, 1,500+ connectors, and your DLP and Conditional Access policies. The difference is where they live and who manages them.</p>
-      <div class="ws-compare" role="table" aria-label="Code apps compared with Copilot Managed Runtime">
-        <div class="ws-head" role="row"><span role="columnheader">&nbsp;</span><span role="columnheader">Code apps</span><span role="columnheader">Managed Runtime</span></div>
-        <div role="row"><span role="rowheader">Lives in</span><span role="cell">A Power Platform environment</span><span role="cell">Copilot Managed Runtime, with Git as the source of truth</span></div>
-        <div role="row"><span role="rowheader">Managed in</span><span role="cell">Power Platform admin center</span><span role="cell">Microsoft 365 admin center</span></div>
-        <div role="row"><span role="rowheader">Built with</span><span role="cell">Power Apps CLI and the client library</span><span role="cell">Cowork, Copilot Code, Copilot Studio, the <code>ms</code> CLI, or Lovable</span></div>
-        <div role="row"><span role="rowheader">Users run it with</span><span role="cell">Power Apps Premium, pay-as-you-go or App Pass</span><span role="cell">Power Apps Premium or Copilot Credits</span></div>
-      </div>
-    </div>
-    <div class="ig-why pink"><h3>My take</h3><p>If your team already runs on Power Platform environments, solutions and pipelines, code apps fit what you have. If the app started as a conversation in Copilot, or you want per-use billing for light users, Managed Runtime is the natural home.</p></div>
-  </article>
-
   <article class="ig-update" id="rules" aria-labelledby="h-rules">
     <div>
       <p class="kicker"><span></span>Rules of thumb</p>
       <h2 id="h-rules">When I'd still reach for Power Apps</h2>
       <ol class="ws-steps">
         <li><h3>It already works</h3><p>Don't rebuild a working app to chase the new thing. Turn on Copilot in it and let agents use its data instead.</p></li>
-        <li><h3>Your users only have Microsoft 365</h3><p>A canvas app on SharePoint costs nothing extra to run. That's hard to beat for a team tool.</p></li>
-        <li><h3>It's record-heavy and process-heavy</h3><p>Related tables, security roles, stages and auditing are what model-driven apps on Dataverse were made for.</p></li>
-        <li><h3>It's used on phones in the field</h3><p>Canvas apps in the Power Apps mobile app, with offline support, are a proven route for frontline work.</p></li>
+        <li><h3>It lives in Teams or SharePoint</h3><p>Canvas apps embed in Teams tabs, SharePoint pages and list forms today.</p></li>
+        <li><h3>It's used on phones in the field</h3><p>The Power Apps mobile app, with offline support, is the proven route for frontline work.</p></li>
+        <li><h3>It's record-heavy and process-heavy</h3><p>Security roles, stages and auditing are what model-driven apps on Dataverse were made for.</p></li>
         <li><h3>People outside the company use it</h3><p>That's a Power Pages job.</p></li>
       </ol>
     </div>
     <div>
-      <div class="ig-why"><h3>And when I'd reach for Managed Runtime</h3><p>When someone can describe the app faster than they could build it, when it started in Cowork, Copilot Code or Copilot Studio, or when a pro dev or Lovable is building it and wants Git, previews and rollback with Microsoft 365 governance.</p></div>
-      <div class="ig-note"><strong>They work together</strong><p>Your Dataverse tables and Power Platform connectors don't care which kind of app calls them. A Managed Runtime app can sit on the same data your model-driven app uses.</p></div>
+      <div class="ig-why pink"><h3>When I'd reach for Managed Runtime</h3><ul class="pmr-reach"><li>The idea is bigger than a canvas: 3D, maps, interactive visuals or a custom design</li><li>Someone can describe it faster than they could build it</li><li>It should work with Copilot, agents and Work IQ from day one</li><li>You want Git, previews and rollback without running hosting yourself</li><li>A developer or Lovable is building it, and IT wants it in the Microsoft 365 inventory</li></ul></div>
+      <div class="ig-note"><strong>They work together</strong><p>Your Dataverse tables and connectors don't care which kind of app calls them. A Managed Runtime app can sit on the same data your model-driven app uses.</p></div>
     </div>
   </article>
 
@@ -305,39 +398,46 @@
     </div>
   </section>
 
-  <p class="ig-sources">Sources: Microsoft Learn, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/licensing-credits">Manage licensing and Copilot Credits for apps on Copilot Managed Runtime</a>, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/licensing-faq">Copilot Managed Runtime licensing FAQ</a>, <a href="https://learn.microsoft.com/power-apps/developer/code-apps/overview">Power Apps code apps overview</a>, <a href="https://learn.microsoft.com/power-platform/admin/powerapps-licensing-faq">Power Apps licensing FAQ</a> and the <a href="https://go.microsoft.com/fwlink/?linkid=2085130">Power Platform Licensing Guide</a>. Status is as published on November 19, 2026.</p>
+  <p class="ig-sources">Sources: Microsoft Learn, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/overview">What is Copilot Managed Runtime</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/partner-integration/">Copilot Managed Runtime vs. other products</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/architecture">Copilot Managed Runtime architecture</a>, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/governance">Default governance settings</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/backend-integration/fabric-integration">Fabric integration</a>, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/licensing-credits">Licensing and Copilot Credits</a>, <a href="https://learn.microsoft.com/power-apps/developer/code-apps/overview">Power Apps code apps overview</a>, <a href="https://learn.microsoft.com/power-apps/maker/canvas-apps/embed-apps-dev">Embed canvas apps</a>, <a href="https://learn.microsoft.com/power-apps/mobile/canvas-mobile-offline-overview">Mobile offline for canvas apps</a>, <a href="https://learn.microsoft.com/power-apps/maker/canvas-apps/share-app-guests">Share a canvas app with guests</a> and the <a href="https://go.microsoft.com/fwlink/?linkid=2085130">Power Platform Licensing Guide</a>. Status is as published on November 19, 2026.</p>
 </div>
 </main>
 
 <script>
 (function(){
 var f=document.getElementById('pmr-form'),out=document.getElementById('pmr-result'),err=document.getElementById('pmr-error');
-var K=['canvas','model','code','pages','cmr'];
+var K=['canvas','model','code','pages','cmr'],Q=['q1','q2','q3','q4','q5','q6','q7'];
 var W={q1:{'new':{cmr:2,code:1},existing:{canvas:3,model:3}},
-q2:{me:{canvas:2,cmr:2},org:{model:2,code:1,cmr:1},external:{pages:8}},
-q3:{m365:{canvas:3,cmr:1},dataverse:{model:3,canvas:1,code:1},systems:{code:2,cmr:2,canvas:1}},
-q4:{describe:{cmr:4},maker:{canvas:2,model:2},dev:{code:3,cmr:2}},
-q5:{m365:{canvas:3},premium:{model:1,code:1,cmr:1},unsure:{}},
-q6:{mobile:{canvas:4},process:{model:4},custom:{code:2,cmr:2},none:{canvas:1,cmr:1}}};
+q2:{me:{canvas:2,cmr:2},org:{model:2,cmr:1,code:1},external:{pages:10}},
+q3:{embed:{canvas:4},field:{canvas:3,model:3},browser:{cmr:2,code:1,model:1}},
+q4:{forms:{canvas:3,model:1},process:{model:4},rich:{cmr:4,code:3},agentic:{cmr:4,model:1}},
+q5:{m365:{canvas:3,cmr:1},dataverse:{model:3,canvas:1,code:1,cmr:1},systems:{code:2,cmr:2,canvas:1}},
+q6:{describe:{cmr:4},maker:{canvas:2,model:2},dev:{code:2,cmr:4},devpp:{code:6,cmr:1}},
+q7:{m365:{canvas:3},premium:{model:1,code:1,cmr:1},unsure:{}}};
 var R={
-canvas:{name:'A canvas app',tag:'Lay out the storefront yourself',why:'Your data lives in Microsoft 365, a maker can own it, and it needs to work for people who may only have a Microsoft 365 license, including on phones.',run:'With standard connectors like SharePoint, most Microsoft 365 users can run it with no extra license. Premium connectors or Dataverse mean Power Apps Premium.',next:'Build it in Power Apps Studio and try the authoring agent. Then turn on Microsoft Copilot in the app so users can ask questions about the data.',link:['/updates/power-apps-arent-dead/#building','See what’s new for canvas apps']},
-model:{name:'A model-driven app',tag:'Move into the building with the filing system',why:'It’s about records, relationships and process. Dataverse security roles, business process flows and auditing do the heavy lifting for you.',run:'Power Apps Premium. Add a Microsoft 365 Copilot license if you want Microsoft Copilot inside the app.',next:'Use the model app-builder skill or generative pages to get started fast, then turn on Microsoft Copilot in the app.',link:['/updates/power-apps-arent-dead/#inside-your-apps','See Copilot in model-driven apps']},
-code:{name:'A Power Apps code app',tag:'Build a custom shop on Power Platform land',why:'A developer wants full control of the UI in React or Vue, and you want it governed with your Power Platform environments, solutions and DLP.',run:'Power Apps Premium, pay-as-you-go or an App Pass.',next:'Turn on code apps in the environment, scaffold it in VS Code with the Power Apps CLI, and add connectors from JavaScript.',link:['https://learn.microsoft.com/power-apps/developer/code-apps/overview','Read the code apps overview']},
-pages:{name:'A Power Pages site',tag:'Open a storefront window to the outside',why:'People outside your organization will use it. That’s what Power Pages is built for, with sign-in options for external users.',run:'Power Pages capacity, based on the visitors to your site.',next:'Start from a Power Pages template, keep the data in Dataverse, and set table permissions before you launch.',link:['https://learn.microsoft.com/power-pages/introduction','Read the Power Pages overview']},
-cmr:{name:'Copilot Managed Runtime',tag:'Describe it and move into the new building',why:'You’d rather describe the app than build it, or a developer wants Git, previews and rollback with Microsoft 365 governance.',run:'Power Apps Premium, or Copilot Credits through a spending policy your admin sets up. Microsoft 365 E3 or E5 alone doesn’t cover it.',next:'Pick where to build it in Cowork, Copilot Code or Copilot Studio, and ask your admin to set up a runtime spending policy before you share it.',link:['/updates/build-it-where-you-are/','Find where to build it']}};
+canvas:{name:'A canvas app',tag:'Lay out the storefront yourself',why:'It lives where people already work, a maker can own it, and it can run for people who only have Microsoft 365, including on phones.',run:'With standard connectors like SharePoint, most Microsoft 365 users can run it with no extra license. Premium connectors or Dataverse mean Power Apps Premium.',next:'Build it in Power Apps Studio and try the authoring agent. Then turn on Microsoft Copilot in the app so users can ask questions about the data.',link:['/updates/power-apps-arent-dead/#building','See what’s new for canvas apps']},
+model:{name:'A model-driven app',tag:'Move into the building with the filing system',why:'It’s about records, relationships and process. Dataverse security roles, business process flows and auditing do the heavy lifting.',run:'Power Apps Premium. Add a Microsoft 365 Copilot license if you want Microsoft Copilot inside the app.',next:'Use the model app-builder skill or generative pages to get started fast, then turn on Microsoft Copilot in the app.',link:['/updates/power-apps-arent-dead/#inside-your-apps','See Copilot in model-driven apps']},
+code:{name:'A Power Apps code app',tag:'Build a custom shop on Power Platform land',why:'A developer wants full control of the UI, and you want it governed with your existing Power Platform environments, solutions and DLP.',run:'Power Apps Premium, pay-as-you-go or an App Pass.',next:'Turn on code apps in the environment, scaffold it in VS Code with the Power Apps CLI, and call connectors from JavaScript.',link:['https://learn.microsoft.com/power-apps/developer/code-apps/overview','Read the code apps overview']},
+pages:{name:'A Power Pages site',tag:'Open a storefront window to the outside',why:'People outside your organization will use it. Power Pages is built for that, with sign-in or anonymous access.',run:'Power Pages capacity, based on the visitors to your site.',next:'Start from a Power Pages template, keep the data in Dataverse, and set table permissions before you launch.',link:['https://learn.microsoft.com/power-pages/introduction','Read the Power Pages overview']},
+cmr:{name:'Copilot Managed Runtime',tag:'Design the custom home on a managed lot',why:'You want no ceiling on what it can do, you’d rather describe it than build it, or it should work with Copilot and agents from day one. Microsoft hosts and governs it, and every version lives in Git.',run:'Power Apps Premium, or Copilot Credits through a spending policy your admin sets up. Microsoft 365 E3 or E5 alone doesn’t cover it.',next:'Pick where to build it in Cowork, Copilot Code or Copilot Studio, and ask your admin to set up a runtime spending policy before you share it.',link:['/updates/build-it-where-you-are/','Find where to build it']}};
 function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 f.addEventListener('submit',function(e){e.preventDefault();var s={},a={},ok=true;K.forEach(function(k){s[k]=0});
-['q1','q2','q3','q4','q5','q6'].forEach(function(q){var v=f.querySelector('input[name="'+q+'"]:checked');if(!v){ok=false;return}a[q]=v.value;var w=W[q][v.value];for(var k in w)s[k]+=w[k]});
+Q.forEach(function(q){var v=f.querySelector('input[name="'+q+'"]:checked');if(!v){ok=false;return}a[q]=v.value;var w=W[q][v.value];for(var k in w)s[k]+=w[k]});
 if(!ok){err.hidden=false;out.hidden=true;return}err.hidden=true;
 var order=K.slice().sort(function(x,y){return s[y]-s[x]||K.indexOf(x)-K.indexOf(y)});
-var top=R[order[0]],alt=R[order[1]],close=s[order[0]]-s[order[1]]<=1,notes=[];
-if(a.q1==='existing'&&(order[0]==='cmr'||order[0]==='code'))notes.push('You already have a working Power App. Rebuilding is a real cost, so make sure the new home buys you something first.');
-if(a.q1==='existing'&&(order[0]==='canvas'||order[0]==='model'))notes.push('Keep it. Your existing app can also become context for agents through Work IQ, with no rebuild.');
-if(a.q5==='m365'&&order[0]==='cmr')notes.push('Your users only have Microsoft 365. If this is a simple team tool on SharePoint, a canvas app would run with no extra cost, so weigh that against the time you save by describing it.');
-if(a.q5==='m365'&&(order[0]==='model'||order[0]==='code'))notes.push('Heads up: this needs Power Apps Premium, and your users only have Microsoft 365 today.');
-if(a.q5==='unsure')notes.push('Check licenses before you build. It can change the answer, especially between a canvas app and Copilot Managed Runtime.');
+var t=order[0],top=R[t],alt=R[order[1]],close=s[t]-s[order[1]]<=1,n=[];
+if(a.q1==='existing'&&(t==='cmr'||t==='code'))n.push('You already have a working Power App. Rebuilding is a real cost, so make sure the new home buys you something, like a richer UI or agent features.');
+if(a.q1==='existing'&&(t==='canvas'||t==='model'))n.push('Keep it. Your existing app can also become context for agents through Work IQ, with no rebuild.');
+if(t==='cmr'&&a.q3==='embed')n.push('You want it inside Teams or SharePoint, and embedding Managed Runtime apps isn’t documented yet. Plan on users opening it from the app portal or a link for now.');
+if(t==='cmr'&&a.q3==='field')n.push('Managed Runtime apps don’t work offline. If people lose signal in the field, a canvas or model-driven app in the Power Apps mobile app is safer.');
+if(t==='cmr'&&a.q5==='systems')n.push('Only 19 Microsoft connectors are allowed by default. Ask your admin to add the third-party or custom connectors you need.');
+if(t==='cmr'&&a.q4==='rich')n.push('Bundle your 3D, map or chart libraries into the app. The default security policy blocks scripts from CDNs and turns web workers off unless your admin allows them.');
+if(a.q7==='m365'&&t==='cmr')n.push('Your users only have Microsoft 365. Budget for a small runtime spending policy, or weigh a canvas app if a simple team tool would do.');
+if(a.q7==='m365'&&(t==='model'||t==='code'))n.push('This needs Power Apps Premium, and your users only have Microsoft 365 today.');
+if(a.q7==='unsure')n.push('Check licenses before you build. It can change the answer, especially between a canvas app and Copilot Managed Runtime.');
+if(t!=='cmr'&&a.q4==='rich')n.push('You want a rich UI. If the controls start to feel limiting, Copilot Managed Runtime has no ceiling there.');
+if(t!=='cmr'&&t!=='pages'&&a.q4==='agentic')n.push('Want deeper agent features? Copilot Managed Runtime apps get Work IQ and Microsoft MCP servers by default.');
 var h='<p class="kind">Your best fit</p><h3>'+esc(top.name)+'</h3><p class="biw-tag">'+esc(top.tag)+'</p><p><strong>Why:</strong> '+esc(top.why)+'</p><p><strong>To run it:</strong> '+esc(top.run)+'</p><p><strong>Next step:</strong> '+esc(top.next)+'</p>';
-if(notes.length)h+='<ul>'+notes.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul>';
+if(n.length)h+='<p><strong>Watch for:</strong></p><ul>'+n.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
 if(close)h+='<p class="biw-alt">It’s close. <strong>'+esc(alt.name)+'</strong> could also work.</p>';
 h+='<a class="text-link" href="'+top.link[0]+'">'+esc(top.link[1])+' <span aria-hidden="true">→</span></a>';
 out.innerHTML=h;out.hidden=false;out.focus();});
