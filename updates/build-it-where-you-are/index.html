@@ -219,7 +219,7 @@
         <path d="M240 79H270M240 151H270M240 223H270M240 295H270M270 79V295" class="cmr-line"/>
         <path d="M270 115H300" class="cmr-line" marker-end="url(#cmr-arrow)"/>
 
-        <g class="cmr-box cmr-key"><rect x="300" y="50" width="260" height="130" rx="14"/><text x="318" y="80" class="cmr-t">Git repository</text><text x="318" y="104" class="cmr-s">The single source of truth.</text><text x="318" y="126" class="cmr-s">Platform-provisioned, or your own</text><text x="318" y="146" class="cmr-s">GitHub.com or GitHub Enterprise</text><text x="318" y="166" class="cmr-s">Cloud repo.</text></g>
+        <g class="cmr-box cmr-key"><rect x="300" y="50" width="260" height="130" rx="14"/><text x="318" y="80" class="cmr-t">Git repository</text><text x="318" y="104" class="cmr-s">The single source of truth.</text><text x="318" y="126" class="cmr-s">Platform-managed by default, or</text><text x="318" y="146" class="cmr-s">bring your own GitHub Enterprise</text><text x="318" y="166" class="cmr-s">Cloud repo (set at creation).</text></g>
 
         <path d="M560 79H620" class="cmr-line" marker-end="url(#cmr-arrow)"/>
         <g class="cmr-box"><rect x="620" y="50" width="240" height="58" rx="12"/><text x="636" y="76" class="cmr-t">Preview any commit</text><text x="636" y="96" class="cmr-s">or branch, built on demand</text></g>
@@ -254,7 +254,7 @@
     </figure>
 
     <div class="cmr-grid">
-      <section class="cmr-card"><h3>Where your app is stored</h3><p>The code lives in a <strong>Git repository</strong>, the single source of truth. Microsoft can provision it for you, or you can point it at your own GitHub.com or GitHub Enterprise Cloud repo. Every build traces back to a real commit, which is how a developer can pick up an app someone started in Cowork.</p></section>
+      <section class="cmr-card"><h3>Where your app is stored</h3><p>The code lives in a <strong>Git repository</strong>, the single source of truth, and every build traces back to a real commit. By default the platform manages that repo for you. Developers building with the CLI can bring their own repo instead, as long as it belongs to a GitHub Enterprise Cloud organization. You pick when the app is created and can't switch later.</p></section>
       <section class="cmr-card"><h3>How changes reach people</h3><p>You can preview any commit or branch, and nothing goes live until you <strong>deploy</strong>. The live app keeps running while you keep working. If a build fails, the old version stays up. To roll back, deploy an older commit. Nothing is lost.</p></section>
       <section class="cmr-card"><h3>Who controls what</h3><p>Building in Cowork is on by default, and admins can limit it to specific people. Copilot Code is managed through spending policies. Copilot Studio has its own tenant setting, and the CLI and SDK are off by default. Running an app needs a Power Apps Premium license or Copilot Credits.</p></section>
     </div>
@@ -319,7 +319,7 @@
       <ol class="ws-steps">
         <li><h3>Week 1 · Cowork</h3><p>Maya types <code>/app</code> in Cowork: "Build me a tracker for open mic sign-ups from my inbox, with name, instrument, preferred date and status." She's using it the same afternoon.</p></li>
         <li><h3>Week 3 · Copilot Studio</h3><p>The whole events team wants it, and performers keep asking about their slot. Maya opens the app in Copilot Studio, adds an agent that answers "When am I on?" and a workflow that sends a reminder two days before each show.</p></li>
-        <li><h3>Month 3 · Copilot Code or a developer</h3><p>The cafe wants it to take ticket payments and show a public schedule. That's real software now, so a developer picks up the Git repo and builds on it instead of starting over.</p></li>
+        <li><h3>Month 3 · Copilot Code or a developer</h3><p>The cafe wants it to take ticket payments and show a public schedule. That's real software now, so a developer takes it from there, building on the app's history instead of starting over.</p></li>
       </ol>
     </div>
     <div class="ig-why pink"><h3>Why it matters</h3><p>Maya didn't need a requirements doc to start, and nobody threw away her work to scale it. That's the shift. The person closest to the problem builds the first version, and it grows from there.</p></div>
@@ -364,7 +364,7 @@
     </div>
   </section>
 
-  <p class="ig-sources">Sources: Microsoft, <a href="https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/">Introducing the new Copilot with Home, Code and Autopilot</a>; <a href="https://learn.microsoft.com/microsoft-365/managed-apps/">Copilot Managed Runtime on Microsoft Learn</a>; <a href="https://www.microsoft.com/microsoft-copilot/blog/copilot-studio/build-apps-in-copilot-cowork-and-copilot-studio/">Build apps in Copilot Cowork and Copilot Studio</a>; <a href="https://microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work">Copilot at Microsoft Ignite 2026</a>. Runtime details: <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/architecture">Managed runtime architecture</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/developer/apps/dev-inner-loop">Build, preview, and deploy apps</a>, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/">Copilot Managed Runtime administration</a> and <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/publish-from-lovable">Publish a Lovable app</a> (prerelease documentation). Features, status and billing are as announced and can change during rollout.</p>
+  <p class="ig-sources">Sources: Microsoft, <a href="https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/">Introducing the new Copilot with Home, Code and Autopilot</a>; <a href="https://learn.microsoft.com/microsoft-365/managed-apps/">Copilot Managed Runtime on Microsoft Learn</a>; <a href="https://www.microsoft.com/microsoft-copilot/blog/copilot-studio/build-apps-in-copilot-cowork-and-copilot-studio/">Build apps in Copilot Cowork and Copilot Studio</a>; <a href="https://microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work">Copilot at Microsoft Ignite 2026</a>. Runtime details: <a href="https://learn.microsoft.com/microsoft-365/managed-apps/developer/">Copilot Managed Runtime SDK overview</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/architecture">Managed runtime architecture</a>, <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/developer/apps/dev-inner-loop">Build, preview, and deploy apps</a>, <a href="https://learn.microsoft.com/microsoft-365/admin/manage/apps/">Copilot Managed Runtime administration</a> and <a href="https://learn.microsoft.com/microsoft-365/copilot-managed-runtime/publish-from-lovable">Publish a Lovable app</a> (prerelease documentation). Features, status and billing are as announced and can change during rollout.</p>
 </div>
 </main>
 <script>
